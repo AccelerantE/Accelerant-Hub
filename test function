@@ -1,0 +1,4 @@
+local function hi()
+  print("hi")
+  return true
+end
