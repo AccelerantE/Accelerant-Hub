@@ -1,0 +1,2153 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local Accelerant = {
+	Accelerant = Instance.new("ScreenGui"),
+	WorkBar = Instance.new("Frame"),
+	UICorner = Instance.new("UICorner"),
+	Description = Instance.new("TextLabel"),
+	UICorner_2 = Instance.new("UICorner"),
+	Top = Instance.new("Frame"),
+	UIListLayout = Instance.new("UIListLayout"),
+	Home = Instance.new("ImageButton"),
+	Local = Instance.new("ImageButton"),
+	Scripts = Instance.new("ImageButton"),
+	Combat = Instance.new("ImageButton"),
+	Bottom = Instance.new("Frame"),
+	UIListLayout_2 = Instance.new("UIListLayout"),
+	Settings = Instance.new("ImageButton"),
+	LocalMods = Instance.new("ImageLabel"),
+	UICorner_3 = Instance.new("UICorner"),
+	Name = Instance.new("TextLabel"),
+	Speed = Instance.new("ImageButton"),
+	UICorner_4 = Instance.new("UICorner"),
+	Bar = Instance.new("Frame"),
+	UICorner_5 = Instance.new("UICorner"),
+	CurrentValue = Instance.new("TextLabel"),
+	SetSpeed = Instance.new("TextButton"),
+	UICorner_6 = Instance.new("UICorner"),
+	TextLabel = Instance.new("TextLabel"),
+	SetJump = Instance.new("TextButton"),
+	UICorner_7 = Instance.new("UICorner"),
+	TextLabel_2 = Instance.new("TextLabel"),
+	Jump = Instance.new("ImageButton"),
+	UICorner_8 = Instance.new("UICorner"),
+	Bar_2 = Instance.new("Frame"),
+	UICorner_9 = Instance.new("UICorner"),
+	CurrentValue_2 = Instance.new("TextLabel"),
+	Home_2 = Instance.new("Folder"),
+	ServerInfo = Instance.new("ImageLabel"),
+	UICorner_10 = Instance.new("UICorner"),
+	Name_2 = Instance.new("TextLabel"),
+	PiS = Instance.new("TextLabel"),
+	FiS = Instance.new("TextLabel"),
+	Ping = Instance.new("TextLabel"),
+	aclrInfo = Instance.new("ImageLabel"),
+	UICorner_11 = Instance.new("UICorner"),
+	Name_3 = Instance.new("TextLabel"),
+	Info = Instance.new("TextLabel"),
+	Friends = Instance.new("ImageLabel"),
+	UICorner_12 = Instance.new("UICorner"),
+	ScrollingFrame = Instance.new("ScrollingFrame"),
+	UIListLayout_3 = Instance.new("UIListLayout"),
+	GameInfo = Instance.new("ImageLabel"),
+	UICorner_13 = Instance.new("UICorner"),
+	GameName = Instance.new("TextLabel"),
+	GameIcon = Instance.new("ImageLabel"),
+	UICorner_14 = Instance.new("UICorner"),
+	GameOwner = Instance.new("TextLabel"),
+	Credits = Instance.new("TextLabel"),
+	SFE = Instance.new("TextLabel"),
+	LastUPD = Instance.new("TextLabel"),
+	LastUPD_2 = Instance.new("TextLabel"),
+	Executor = Instance.new("ImageLabel"),
+	UICorner_15 = Instance.new("UICorner"),
+	SF = Instance.new("TextLabel"),
+	exeName = Instance.new("TextLabel"),
+	Scripts_2 = Instance.new("ImageLabel"),
+	UICorner_16 = Instance.new("UICorner"),
+	Name_4 = Instance.new("TextLabel"),
+	ScrollingFrame_2 = Instance.new("ScrollingFrame"),
+	UIListLayout_4 = Instance.new("UIListLayout"),
+	infYield = Instance.new("ImageButton"),
+	UICorner_17 = Instance.new("UICorner"),
+	UIGradient = Instance.new("UIGradient"),
+	TextLabel_3 = Instance.new("TextLabel"),
+	cmdx = Instance.new("ImageButton"),
+	UICorner_18 = Instance.new("UICorner"),
+	UIGradient_2 = Instance.new("UIGradient"),
+	TextLabel_4 = Instance.new("TextLabel"),
+	OwlHub = Instance.new("ImageButton"),
+	UICorner_19 = Instance.new("UICorner"),
+	UIGradient_3 = Instance.new("UIGradient"),
+	TextLabel_5 = Instance.new("TextLabel"),
+	DEX = Instance.new("ImageButton"),
+	UICorner_20 = Instance.new("UICorner"),
+	UIGradient_4 = Instance.new("UIGradient"),
+	TextLabel_6 = Instance.new("TextLabel"),
+	AddScript = Instance.new("ImageButton"),
+	Combat_2 = Instance.new("Folder"),
+	Aimbot = Instance.new("ImageLabel"),
+	UICorner_21 = Instance.new("UICorner"),
+	Name_5 = Instance.new("TextLabel"),
+	ScrollingFrame_3 = Instance.new("ScrollingFrame"),
+	UIListLayout_5 = Instance.new("UIListLayout"),
+	Aimbot_2 = Instance.new("TextLabel"),
+	Check = Instance.new("ImageButton"),
+	UICorner_22 = Instance.new("UICorner"),
+	V = Instance.new("ImageLabel"),
+	TeamCheck = Instance.new("TextLabel"),
+	Check_2 = Instance.new("ImageButton"),
+	UICorner_23 = Instance.new("UICorner"),
+	V_2 = Instance.new("ImageLabel"),
+	AutoWCheck = Instance.new("TextLabel"),
+	Check_3 = Instance.new("ImageButton"),
+	UICorner_24 = Instance.new("UICorner"),
+	V_3 = Instance.new("ImageLabel"),
+	useFov = Instance.new("TextLabel"),
+	Check_4 = Instance.new("ImageButton"),
+	UICorner_25 = Instance.new("UICorner"),
+	V_4 = Instance.new("ImageLabel"),
+	ScreenCheck = Instance.new("TextLabel"),
+	Check_5 = Instance.new("ImageButton"),
+	UICorner_26 = Instance.new("UICorner"),
+	V_5 = Instance.new("ImageLabel"),
+	ShowFov = Instance.new("TextLabel"),
+	Check_6 = Instance.new("ImageButton"),
+	UICorner_27 = Instance.new("UICorner"),
+	V_6 = Instance.new("ImageLabel"),
+	ESP = Instance.new("ImageLabel"),
+	UICorner_28 = Instance.new("UICorner"),
+	ScrollingFrame_4 = Instance.new("ScrollingFrame"),
+	Box = Instance.new("TextLabel"),
+	Check_7 = Instance.new("ImageButton"),
+	UICorner_29 = Instance.new("UICorner"),
+	V_7 = Instance.new("ImageLabel"),
+	ESPNames = Instance.new("TextLabel"),
+	Check_8 = Instance.new("ImageButton"),
+	UICorner_30 = Instance.new("UICorner"),
+	V_8 = Instance.new("ImageLabel"),
+	Enemies = Instance.new("TextLabel"),
+	Check_9 = Instance.new("ImageButton"),
+	UICorner_31 = Instance.new("UICorner"),
+	V_9 = Instance.new("ImageLabel"),
+	Teamates = Instance.new("TextLabel"),
+	Check_10 = Instance.new("ImageButton"),
+	UICorner_32 = Instance.new("UICorner"),
+	V_10 = Instance.new("ImageLabel"),
+	UIListLayout_6 = Instance.new("UIListLayout"),
+	ESP_2 = Instance.new("TextLabel"),
+	Check_11 = Instance.new("ImageButton"),
+	UICorner_33 = Instance.new("UICorner"),
+	V_11 = Instance.new("ImageLabel"),
+	Tracers = Instance.new("TextLabel"),
+	Check_12 = Instance.new("ImageButton"),
+	UICorner_34 = Instance.new("UICorner"),
+	V_12 = Instance.new("ImageLabel"),
+	wCheck = Instance.new("TextLabel"),
+	Check_13 = Instance.new("ImageButton"),
+	UICorner_35 = Instance.new("UICorner"),
+	V_13 = Instance.new("ImageLabel"),
+	Name_6 = Instance.new("TextLabel"),
+	AddScript_2 = Instance.new("ImageLabel"),
+	UICorner_36 = Instance.new("UICorner"),
+	Name_7 = Instance.new("TextLabel"),
+	sName = Instance.new("TextBox"),
+	UICorner_37 = Instance.new("UICorner"),
+	Open = Instance.new("ImageButton"),
+	UICorner_38 = Instance.new("UICorner"),
+	Close = Instance.new("ImageButton"),
+	UICorner_39 = Instance.new("UICorner"),
+	ColorPicker = Instance.new("ImageButton"),
+	UICorner_40 = Instance.new("UICorner"),
+	sColor = Instance.new("TextBox"),
+	UICorner_41 = Instance.new("UICorner"),
+	Confirm = Instance.new("TextButton"),
+	UICorner_42 = Instance.new("UICorner"),
+	Selector = Instance.new("Frame"),
+	RGB = Instance.new("ImageLabel"),
+	Marker = Instance.new("Frame"),
+	UICorner_43 = Instance.new("UICorner"),
+	Preview = Instance.new("ImageLabel"),
+	UICorner_44 = Instance.new("UICorner"),
+	Value = Instance.new("ImageLabel"),
+	Marker_2 = Instance.new("Frame"),
+	UICorner_45 = Instance.new("UICorner"),
+	UICorner_46 = Instance.new("UICorner"),
+	sSource = Instance.new("TextBox"),
+	UICorner_47 = Instance.new("UICorner"),
+	Settings_2 = Instance.new("ImageLabel"),
+	WB = Instance.new("ScrollingFrame"),
+	SL = Instance.new("TextLabel"),
+	Check_14 = Instance.new("ImageButton"),
+	UICorner_48 = Instance.new("UICorner"),
+	V_14 = Instance.new("ImageLabel"),
+	SSCR = Instance.new("TextLabel"),
+	Check_15 = Instance.new("ImageButton"),
+	UICorner_49 = Instance.new("UICorner"),
+	V_15 = Instance.new("ImageLabel"),
+	SC = Instance.new("TextLabel"),
+	Check_16 = Instance.new("ImageButton"),
+	UICorner_50 = Instance.new("UICorner"),
+	V_16 = Instance.new("ImageLabel"),
+	HighLight = Instance.new("TextButton"),
+	TextLabel_7 = Instance.new("TextLabel"),
+	UICorner_51 = Instance.new("UICorner"),
+	EP = Instance.new("ScrollingFrame"),
+	saColor = Instance.new("TextButton"),
+	nsaColor = Instance.new("TextButton"),
+	TextLabel_8 = Instance.new("TextLabel"),
+	TextLabel_9 = Instance.new("TextLabel"),
+	AB = Instance.new("ScrollingFrame"),
+	fColor = Instance.new("TextButton"),
+	TextLabel_10 = Instance.new("TextLabel"),
+	FOV = Instance.new("ImageButton"),
+	UICorner_52 = Instance.new("UICorner"),
+	Bar_3 = Instance.new("Frame"),
+	UICorner_53 = Instance.new("UICorner"),
+	CurrentValue_3 = Instance.new("TextLabel"),
+	TextLabel_11 = Instance.new("TextLabel"),
+	Selector_2 = Instance.new("Frame"),
+	RGB_2 = Instance.new("ImageLabel"),
+	Marker_3 = Instance.new("Frame"),
+	UICorner_54 = Instance.new("UICorner"),
+	Preview_2 = Instance.new("ImageLabel"),
+	UICorner_55 = Instance.new("UICorner"),
+	Value_2 = Instance.new("ImageLabel"),
+	Marker_4 = Instance.new("Frame"),
+	UICorner_56 = Instance.new("UICorner"),
+	sColor_2 = Instance.new("TextBox"),
+	UICorner_57 = Instance.new("UICorner"),
+	CO = Instance.new("ScrollingFrame"),
+	bgColor = Instance.new("TextButton"),
+	scColor = Instance.new("TextButton"),
+	CurrentlyChangingColor = Instance.new("TextLabel"),
+}
+
+--Properties:
+
+Accelerant.Accelerant.Name = "Accelerant"
+Accelerant.Accelerant.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Accelerant.Accelerant.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Accelerant.Accelerant.DisplayOrder = 999999999
+
+Accelerant.WorkBar.Name = "WorkBar"
+Accelerant.WorkBar.Parent = Accelerant.Accelerant
+Accelerant.WorkBar.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Accelerant.WorkBar.Position = UDim2.new(0.95154506, 0, 0.289216548, 0)
+Accelerant.WorkBar.Size = UDim2.new(0.0363517702, 0, 0.421185881, 0)
+
+Accelerant.UICorner.CornerRadius = UDim.new(0.150000006, 0)
+Accelerant.UICorner.Parent = Accelerant.WorkBar
+
+Accelerant.Description.Name = "Description"
+Accelerant.Description.Parent = Accelerant.WorkBar
+Accelerant.Description.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Accelerant.Description.BackgroundTransparency = 0.200
+Accelerant.Description.Position = UDim2.new(0.195999995, 0, 0.0299999993, 0)
+Accelerant.Description.Size = UDim2.new(2.1219511, 0, 0.0756453201, 0)
+Accelerant.Description.Visible = false
+Accelerant.Description.Font = Enum.Font.Unknown
+Accelerant.Description.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Description.TextScaled = true
+Accelerant.Description.TextSize = 14.000
+Accelerant.Description.TextWrapped = true
+
+Accelerant.UICorner_2.CornerRadius = UDim.new(0.300000012, 0)
+Accelerant.UICorner_2.Parent = Accelerant.Description
+
+Accelerant.Top.Name = "Top"
+Accelerant.Top.Parent = Accelerant.WorkBar
+Accelerant.Top.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Accelerant.Top.BackgroundTransparency = 1.000
+Accelerant.Top.Position = UDim2.new(0, 0, 0.0282258075, 0)
+Accelerant.Top.Size = UDim2.new(1, 0, 0.52822578, 0)
+
+Accelerant.UIListLayout.Parent = Accelerant.Top
+Accelerant.UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+Accelerant.UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+Accelerant.UIListLayout.Padding = UDim.new(0.0700000003, 0)
+
+Accelerant.Home.Name = "Home"
+Accelerant.Home.Parent = Accelerant.Top
+Accelerant.Home.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.Home.BackgroundTransparency = 1.000
+Accelerant.Home.Position = UDim2.new(0.258574426, 0, 0, 0)
+Accelerant.Home.Size = UDim2.new(0.48284781, 0, 0.142440632, 0)
+Accelerant.Home.Image = "rbxassetid://11555682479"
+
+Accelerant.Local.Name = "Local"
+Accelerant.Local.Parent = Accelerant.Top
+Accelerant.Local.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.Local.BackgroundTransparency = 1.000
+Accelerant.Local.Position = UDim2.new(0.258442193, 0, 0.198773026, 0)
+Accelerant.Local.Size = UDim2.new(0.483115643, 0, 0.142259255, 0)
+Accelerant.Local.Image = "rbxassetid://11555688651"
+
+Accelerant.Scripts.Name = "Scripts"
+Accelerant.Scripts.Parent = Accelerant.Top
+Accelerant.Scripts.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.Scripts.BackgroundTransparency = 1.000
+Accelerant.Scripts.Position = UDim2.new(0.258442193, 0, 0.397364885, 0)
+Accelerant.Scripts.Size = UDim2.new(0.483115643, 0, 0.142259255, 0)
+Accelerant.Scripts.Image = "rbxassetid://11555690850"
+
+Accelerant.Combat.Name = "Combat"
+Accelerant.Combat.Parent = Accelerant.Top
+Accelerant.Combat.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.Combat.BackgroundTransparency = 1.000
+Accelerant.Combat.Position = UDim2.new(0.258442193, 0, 0.595956504, 0)
+Accelerant.Combat.Size = UDim2.new(0.483115643, 0, 0.142259255, 0)
+Accelerant.Combat.Image = "rbxassetid://11556446341"
+
+Accelerant.Bottom.Name = "Bottom"
+Accelerant.Bottom.Parent = Accelerant.WorkBar
+Accelerant.Bottom.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Accelerant.Bottom.BackgroundTransparency = 1.000
+Accelerant.Bottom.Position = UDim2.new(0, 0, 0.572580695, 0)
+Accelerant.Bottom.Size = UDim2.new(1, 0, 0.387096733, 0)
+
+Accelerant.UIListLayout_2.Parent = Accelerant.Bottom
+Accelerant.UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+Accelerant.UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+Accelerant.UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Bottom
+Accelerant.UIListLayout_2.Padding = UDim.new(0.0700000003, 0)
+
+Accelerant.Settings.Name = "Settings"
+Accelerant.Settings.Parent = Accelerant.Bottom
+Accelerant.Settings.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.Settings.BackgroundTransparency = 1.000
+Accelerant.Settings.Position = UDim2.new(0.287222207, 0, 0.8066957, 0)
+Accelerant.Settings.Size = UDim2.new(0.425555646, 0, 0.193304285, 0)
+Accelerant.Settings.Image = "rbxassetid://11557051625"
+
+Accelerant.LocalMods.Name = "LocalMods"
+Accelerant.LocalMods.Parent = Accelerant.Accelerant
+Accelerant.LocalMods.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Accelerant.LocalMods.Position = UDim2.new(0.00963084958, 0, 0.807065248, 0)
+Accelerant.LocalMods.Size = UDim2.new(0.235183597, 0, 0.173458308, 0)
+Accelerant.LocalMods.Visible = false
+Accelerant.LocalMods.Image = "rbxassetid://11571917876"
+Accelerant.LocalMods.ImageColor3 = Color3.fromRGB(140, 140, 140)
+Accelerant.LocalMods.ImageTransparency = 0.700
+Accelerant.LocalMods.ScaleType = Enum.ScaleType.Tile
+Accelerant.LocalMods.SliceCenter = Rect.new(0, 0, 100, 0)
+Accelerant.LocalMods.SliceScale = 0.000
+Accelerant.LocalMods.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+Accelerant.UICorner_3.CornerRadius = UDim.new(0.0599999987, 0)
+Accelerant.UICorner_3.Parent = Accelerant.LocalMods
+
+Accelerant.Name.Name = "Name"
+Accelerant.Name.Parent = Accelerant.LocalMods
+Accelerant.Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Name.BackgroundTransparency = 1.000
+Accelerant.Name.Position = UDim2.new(0.0355773792, 0, 0.0573245436, 0)
+Accelerant.Name.Size = UDim2.new(0.753228068, 0, 0.173572615, 0)
+Accelerant.Name.Font = Enum.Font.SourceSansBold
+Accelerant.Name.Text = "LocalPlayer"
+Accelerant.Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Name.TextScaled = true
+Accelerant.Name.TextSize = 14.000
+Accelerant.Name.TextTransparency = 0.200
+Accelerant.Name.TextWrapped = true
+Accelerant.Name.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Speed.Name = "Speed"
+Accelerant.Speed.Parent = Accelerant.LocalMods
+Accelerant.Speed.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.Speed.Position = UDim2.new(0.0328043588, 0, 0.287754506, 0)
+Accelerant.Speed.Size = UDim2.new(0.685246587, 0, 0.220047563, 0)
+Accelerant.Speed.AutoButtonColor = false
+
+Accelerant.UICorner_4.CornerRadius = UDim.new(0.200000003, 0)
+Accelerant.UICorner_4.Parent = Accelerant.Speed
+
+Accelerant.Bar.Name = "Bar"
+Accelerant.Bar.Parent = Accelerant.Speed
+Accelerant.Bar.BackgroundColor3 = Color3.fromRGB(120, 50, 255)
+Accelerant.Bar.Size = UDim2.new(1, 0, 1, 0)
+
+Accelerant.UICorner_5.CornerRadius = UDim.new(0.200000003, 0)
+Accelerant.UICorner_5.Parent = Accelerant.Bar
+
+Accelerant.CurrentValue.Name = "CurrentValue"
+Accelerant.CurrentValue.Parent = Accelerant.Speed
+Accelerant.CurrentValue.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.CurrentValue.BackgroundTransparency = 1.000
+Accelerant.CurrentValue.Position = UDim2.new(0.225620598, 0, 0.115384616, 0)
+Accelerant.CurrentValue.Size = UDim2.new(0.532999992, 0, 0.731000006, 0)
+Accelerant.CurrentValue.Font = Enum.Font.Nunito
+Accelerant.CurrentValue.Text = "1000"
+Accelerant.CurrentValue.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.CurrentValue.TextScaled = true
+Accelerant.CurrentValue.TextSize = 14.000
+Accelerant.CurrentValue.TextWrapped = true
+
+Accelerant.SetSpeed.Name = "SetSpeed"
+Accelerant.SetSpeed.Parent = Accelerant.LocalMods
+Accelerant.SetSpeed.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.SetSpeed.Position = UDim2.new(0.758145273, 0, 0.287754506, 0)
+Accelerant.SetSpeed.Size = UDim2.new(0.20776093, 0, 0.220047563, 0)
+Accelerant.SetSpeed.AutoButtonColor = false
+Accelerant.SetSpeed.Font = Enum.Font.Nunito
+Accelerant.SetSpeed.Text = ""
+Accelerant.SetSpeed.TextColor3 = Color3.fromRGB(0, 0, 0)
+Accelerant.SetSpeed.TextScaled = true
+Accelerant.SetSpeed.TextSize = 14.000
+Accelerant.SetSpeed.TextWrapped = true
+
+Accelerant.UICorner_6.CornerRadius = UDim.new(0.200000003, 0)
+Accelerant.UICorner_6.Parent = Accelerant.SetSpeed
+
+Accelerant.TextLabel.Parent = Accelerant.SetSpeed
+Accelerant.TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel.BackgroundTransparency = 1.000
+Accelerant.TextLabel.Position = UDim2.new(0.145833343, 0, 0, 0)
+Accelerant.TextLabel.Size = UDim2.new(0.708333254, 0, 1, 0)
+Accelerant.TextLabel.Font = Enum.Font.Unknown
+Accelerant.TextLabel.Text = "Speed"
+Accelerant.TextLabel.TextColor3 = Color3.fromRGB(120, 50, 255)
+Accelerant.TextLabel.TextScaled = true
+Accelerant.TextLabel.TextSize = 14.000
+Accelerant.TextLabel.TextWrapped = true
+
+Accelerant.SetJump.Name = "SetJump"
+Accelerant.SetJump.Parent = Accelerant.LocalMods
+Accelerant.SetJump.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.SetJump.Position = UDim2.new(0.758145273, 0, 0.567045629, 0)
+Accelerant.SetJump.Size = UDim2.new(0.20776093, 0, 0.220047563, 0)
+Accelerant.SetJump.AutoButtonColor = false
+Accelerant.SetJump.Font = Enum.Font.Nunito
+Accelerant.SetJump.Text = ""
+Accelerant.SetJump.TextColor3 = Color3.fromRGB(0, 0, 0)
+Accelerant.SetJump.TextScaled = true
+Accelerant.SetJump.TextSize = 14.000
+Accelerant.SetJump.TextWrapped = true
+
+Accelerant.UICorner_7.CornerRadius = UDim.new(0.200000003, 0)
+Accelerant.UICorner_7.Parent = Accelerant.SetJump
+
+Accelerant.TextLabel_2.Parent = Accelerant.SetJump
+Accelerant.TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_2.BackgroundTransparency = 1.000
+Accelerant.TextLabel_2.Position = UDim2.new(0.145833343, 0, 0, 0)
+Accelerant.TextLabel_2.Size = UDim2.new(0.708333254, 0, 1, 0)
+Accelerant.TextLabel_2.Font = Enum.Font.Unknown
+Accelerant.TextLabel_2.Text = "Jump"
+Accelerant.TextLabel_2.TextColor3 = Color3.fromRGB(255, 100, 50)
+Accelerant.TextLabel_2.TextScaled = true
+Accelerant.TextLabel_2.TextSize = 14.000
+Accelerant.TextLabel_2.TextWrapped = true
+
+Accelerant.Jump.Name = "Jump"
+Accelerant.Jump.Parent = Accelerant.LocalMods
+Accelerant.Jump.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.Jump.Position = UDim2.new(0.0328043588, 0, 0.567045629, 0)
+Accelerant.Jump.Size = UDim2.new(0.685246587, 0, 0.220047563, 0)
+Accelerant.Jump.AutoButtonColor = false
+
+Accelerant.UICorner_8.CornerRadius = UDim.new(0.200000003, 0)
+Accelerant.UICorner_8.Parent = Accelerant.Jump
+
+Accelerant.Bar_2.Name = "Bar"
+Accelerant.Bar_2.Parent = Accelerant.Jump
+Accelerant.Bar_2.BackgroundColor3 = Color3.fromRGB(255, 100, 50)
+Accelerant.Bar_2.Size = UDim2.new(1, 0, 1, 0)
+
+Accelerant.UICorner_9.CornerRadius = UDim.new(0.200000003, 0)
+Accelerant.UICorner_9.Parent = Accelerant.Bar_2
+
+Accelerant.CurrentValue_2.Name = "CurrentValue"
+Accelerant.CurrentValue_2.Parent = Accelerant.Jump
+Accelerant.CurrentValue_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.CurrentValue_2.BackgroundTransparency = 1.000
+Accelerant.CurrentValue_2.Position = UDim2.new(0.230939746, 0, 0.115384623, 0)
+Accelerant.CurrentValue_2.Size = UDim2.new(0.53280139, 0, 0.730769217, 0)
+Accelerant.CurrentValue_2.Font = Enum.Font.Nunito
+Accelerant.CurrentValue_2.Text = "300"
+Accelerant.CurrentValue_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.CurrentValue_2.TextScaled = true
+Accelerant.CurrentValue_2.TextSize = 14.000
+Accelerant.CurrentValue_2.TextWrapped = true
+
+Accelerant.Home_2.Name = "Home"
+Accelerant.Home_2.Parent = Accelerant.Accelerant
+
+Accelerant.ServerInfo.Name = "ServerInfo"
+Accelerant.ServerInfo.Parent = Accelerant.Home_2
+Accelerant.ServerInfo.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Accelerant.ServerInfo.Position = UDim2.new(0.176637664, 0, 0.184049368, 0)
+Accelerant.ServerInfo.Size = UDim2.new(0.168268427, 0, 0.141548067, 0)
+Accelerant.ServerInfo.Visible = false
+Accelerant.ServerInfo.Image = "rbxassetid://11570022934"
+Accelerant.ServerInfo.ImageColor3 = Color3.fromRGB(255, 220, 100)
+Accelerant.ServerInfo.ImageTransparency = 0.700
+Accelerant.ServerInfo.ScaleType = Enum.ScaleType.Tile
+Accelerant.ServerInfo.SliceCenter = Rect.new(0, 0, 100, 0)
+Accelerant.ServerInfo.SliceScale = 0.000
+Accelerant.ServerInfo.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+Accelerant.UICorner_10.CornerRadius = UDim.new(0.0799999982, 0)
+Accelerant.UICorner_10.Parent = Accelerant.ServerInfo
+
+Accelerant.Name_2.Name = "Name"
+Accelerant.Name_2.Parent = Accelerant.ServerInfo
+Accelerant.Name_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Name_2.BackgroundTransparency = 1.000
+Accelerant.Name_2.Position = UDim2.new(0.0538020059, 0, 0.0996412858, 0)
+Accelerant.Name_2.Size = UDim2.new(0.753228068, 0, 0.215889454, 0)
+Accelerant.Name_2.Font = Enum.Font.Unknown
+Accelerant.Name_2.Text = "Server Info"
+Accelerant.Name_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Name_2.TextScaled = true
+Accelerant.Name_2.TextSize = 14.000
+Accelerant.Name_2.TextTransparency = 0.200
+Accelerant.Name_2.TextWrapped = true
+Accelerant.Name_2.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.PiS.Name = "PiS"
+Accelerant.PiS.Parent = Accelerant.ServerInfo
+Accelerant.PiS.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.PiS.BackgroundTransparency = 1.000
+Accelerant.PiS.Position = UDim2.new(0.0538020432, 0, 0.390261859, 0)
+Accelerant.PiS.Size = UDim2.new(0.660710633, 0, 0.188319981, 0)
+Accelerant.PiS.Font = Enum.Font.Unknown
+Accelerant.PiS.Text = "Players in server: "
+Accelerant.PiS.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.PiS.TextScaled = true
+Accelerant.PiS.TextSize = 14.000
+Accelerant.PiS.TextTransparency = 0.200
+Accelerant.PiS.TextWrapped = true
+Accelerant.PiS.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.FiS.Name = "FiS"
+Accelerant.FiS.Parent = Accelerant.ServerInfo
+Accelerant.FiS.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.FiS.BackgroundTransparency = 1.000
+Accelerant.FiS.Position = UDim2.new(0.0540000014, 0, 0.588, 0)
+Accelerant.FiS.Size = UDim2.new(0.660710633, 0, 0.188319981, 0)
+Accelerant.FiS.Font = Enum.Font.Unknown
+Accelerant.FiS.Text = "Friends in server: "
+Accelerant.FiS.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.FiS.TextScaled = true
+Accelerant.FiS.TextSize = 14.000
+Accelerant.FiS.TextTransparency = 0.200
+Accelerant.FiS.TextWrapped = true
+Accelerant.FiS.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Ping.Name = "Ping"
+Accelerant.Ping.Parent = Accelerant.ServerInfo
+Accelerant.Ping.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Ping.BackgroundTransparency = 1.000
+Accelerant.Ping.Position = UDim2.new(0.0540000014, 0, 0.765999973, 0)
+Accelerant.Ping.Size = UDim2.new(0.660710633, 0, 0.188319981, 0)
+Accelerant.Ping.Font = Enum.Font.Unknown
+Accelerant.Ping.Text = "Ping:"
+Accelerant.Ping.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Ping.TextScaled = true
+Accelerant.Ping.TextSize = 14.000
+Accelerant.Ping.TextTransparency = 0.200
+Accelerant.Ping.TextWrapped = true
+Accelerant.Ping.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.aclrInfo.Name = "aclrInfo"
+Accelerant.aclrInfo.Parent = Accelerant.Home_2
+Accelerant.aclrInfo.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Accelerant.aclrInfo.Position = UDim2.new(0.011888532, 0, 0.0211120546, 0)
+Accelerant.aclrInfo.Size = UDim2.new(0.155199632, 0, 0.147533029, 0)
+Accelerant.aclrInfo.Visible = false
+Accelerant.aclrInfo.Image = "rbxassetid://11558334164"
+Accelerant.aclrInfo.ImageTransparency = 0.700
+Accelerant.aclrInfo.ScaleType = Enum.ScaleType.Tile
+Accelerant.aclrInfo.SliceCenter = Rect.new(0, 0, 100, 0)
+Accelerant.aclrInfo.SliceScale = 0.000
+Accelerant.aclrInfo.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+Accelerant.UICorner_11.CornerRadius = UDim.new(0.0799999982, 0)
+Accelerant.UICorner_11.Parent = Accelerant.aclrInfo
+
+Accelerant.Name_3.Name = "Name"
+Accelerant.Name_3.Parent = Accelerant.aclrInfo
+Accelerant.Name_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Name_3.BackgroundTransparency = 1.000
+Accelerant.Name_3.Position = UDim2.new(0.0538020059, 0, 0.0996412858, 0)
+Accelerant.Name_3.Size = UDim2.new(0.753228068, 0, 0.215889454, 0)
+Accelerant.Name_3.Font = Enum.Font.Unknown
+Accelerant.Name_3.Text = "Accelerant Hub v1"
+Accelerant.Name_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Name_3.TextScaled = true
+Accelerant.Name_3.TextSize = 14.000
+Accelerant.Name_3.TextTransparency = 0.200
+Accelerant.Name_3.TextWrapped = true
+Accelerant.Name_3.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Info.Name = "Info"
+Accelerant.Info.Parent = Accelerant.aclrInfo
+Accelerant.Info.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Info.BackgroundTransparency = 1.000
+Accelerant.Info.Position = UDim2.new(0.0538020134, 0, 0.390261739, 0)
+Accelerant.Info.Size = UDim2.new(0.753228128, 0, 0.188319966, 0)
+Accelerant.Info.Font = Enum.Font.Unknown
+Accelerant.Info.Text = "Made by Accelerant_E"
+Accelerant.Info.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Info.TextScaled = true
+Accelerant.Info.TextSize = 14.000
+Accelerant.Info.TextTransparency = 0.200
+Accelerant.Info.TextWrapped = true
+Accelerant.Info.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Friends.Name = "Friends"
+Accelerant.Friends.Parent = Accelerant.Home_2
+Accelerant.Friends.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Accelerant.Friends.Position = UDim2.new(0.176231608, 0, 0.356910408, 0)
+Accelerant.Friends.Size = UDim2.new(0.168709397, 0, 0.421049058, 0)
+Accelerant.Friends.Visible = false
+Accelerant.Friends.Image = "rbxassetid://11570035181"
+Accelerant.Friends.ImageColor3 = Color3.fromRGB(255, 100, 255)
+Accelerant.Friends.ImageTransparency = 0.700
+Accelerant.Friends.ScaleType = Enum.ScaleType.Tile
+Accelerant.Friends.SliceCenter = Rect.new(0, 0, 100, 0)
+Accelerant.Friends.SliceScale = 0.000
+Accelerant.Friends.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+Accelerant.UICorner_12.CornerRadius = UDim.new(0.0299999993, 0)
+Accelerant.UICorner_12.Parent = Accelerant.Friends
+
+Accelerant.ScrollingFrame.Parent = Accelerant.Friends
+Accelerant.ScrollingFrame.Active = true
+Accelerant.ScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.ScrollingFrame.BackgroundTransparency = 1.000
+Accelerant.ScrollingFrame.BorderSizePixel = 0
+Accelerant.ScrollingFrame.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+Accelerant.ScrollingFrame.ScrollBarThickness = 8
+
+Accelerant.UIListLayout_3.Parent = Accelerant.ScrollingFrame
+Accelerant.UIListLayout_3.HorizontalAlignment = Enum.HorizontalAlignment.Center
+Accelerant.UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+Accelerant.UIListLayout_3.Padding = UDim.new(0.150000006, 0)
+
+Accelerant.GameInfo.Name = "GameInfo"
+Accelerant.GameInfo.Parent = Accelerant.Home_2
+Accelerant.GameInfo.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Accelerant.GameInfo.Position = UDim2.new(0.0110403011, 0, 0.192913398, 0)
+Accelerant.GameInfo.Size = UDim2.new(0.155199632, 0, 0.412035525, 0)
+Accelerant.GameInfo.Visible = false
+Accelerant.GameInfo.Image = "rbxassetid://11565618483"
+Accelerant.GameInfo.ImageColor3 = Color3.fromRGB(0, 255, 200)
+Accelerant.GameInfo.ImageTransparency = 0.700
+Accelerant.GameInfo.ScaleType = Enum.ScaleType.Tile
+Accelerant.GameInfo.SliceCenter = Rect.new(0, 0, 100, 0)
+Accelerant.GameInfo.SliceScale = 0.000
+Accelerant.GameInfo.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+Accelerant.UICorner_13.CornerRadius = UDim.new(0.0399999991, 0)
+Accelerant.UICorner_13.Parent = Accelerant.GameInfo
+
+Accelerant.GameName.Name = "GameName"
+Accelerant.GameName.Parent = Accelerant.GameInfo
+Accelerant.GameName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.GameName.BackgroundTransparency = 1.000
+Accelerant.GameName.Position = UDim2.new(0.0714630112, 0, 0.00634245109, 0)
+Accelerant.GameName.Size = UDim2.new(0.851424754, 0, 0.087346077, 0)
+Accelerant.GameName.Font = Enum.Font.Unknown
+Accelerant.GameName.Text = "Name"
+Accelerant.GameName.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.GameName.TextScaled = true
+Accelerant.GameName.TextSize = 14.000
+Accelerant.GameName.TextTransparency = 0.200
+Accelerant.GameName.TextWrapped = true
+
+Accelerant.GameIcon.Name = "GameIcon"
+Accelerant.GameIcon.Parent = Accelerant.GameInfo
+Accelerant.GameIcon.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.GameIcon.Position = UDim2.new(0.17034243, 0, 0.15174064, 0)
+Accelerant.GameIcon.Size = UDim2.new(0.6518296, 0, 0.456306785, 0)
+Accelerant.GameIcon.SliceCenter = Rect.new(0, 0, 100, 0)
+Accelerant.GameIcon.SliceScale = 0.000
+Accelerant.GameIcon.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+Accelerant.UICorner_14.CornerRadius = UDim.new(0.150000006, 0)
+Accelerant.UICorner_14.Parent = Accelerant.GameIcon
+
+Accelerant.GameOwner.Name = "GameOwner"
+Accelerant.GameOwner.Parent = Accelerant.GameIcon
+Accelerant.GameOwner.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.GameOwner.BackgroundTransparency = 1.000
+Accelerant.GameOwner.Position = UDim2.new(0, 0, 0.845956266, 0)
+Accelerant.GameOwner.Size = UDim2.new(1.00000024, 0, 0.150827989, 0)
+Accelerant.GameOwner.Font = Enum.Font.Unknown
+Accelerant.GameOwner.Text = "By: Nobody"
+Accelerant.GameOwner.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.GameOwner.TextScaled = true
+Accelerant.GameOwner.TextSize = 14.000
+Accelerant.GameOwner.TextTransparency = 0.300
+Accelerant.GameOwner.TextWrapped = true
+
+Accelerant.Credits.Name = "Credits"
+Accelerant.Credits.Parent = Accelerant.GameInfo
+Accelerant.Credits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Credits.BackgroundTransparency = 1.000
+Accelerant.Credits.Position = UDim2.new(0.053801991, 0, 0.639193594, 0)
+Accelerant.Credits.Size = UDim2.new(0.753228068, 0, 0.0676687807, 0)
+Accelerant.Credits.Font = Enum.Font.Unknown
+Accelerant.Credits.Text = "Script by: "
+Accelerant.Credits.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Credits.TextScaled = true
+Accelerant.Credits.TextSize = 14.000
+Accelerant.Credits.TextTransparency = 0.200
+Accelerant.Credits.TextWrapped = true
+Accelerant.Credits.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.SFE.Name = "SFE"
+Accelerant.SFE.Parent = Accelerant.GameInfo
+Accelerant.SFE.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.SFE.BackgroundTransparency = 1.000
+Accelerant.SFE.Position = UDim2.new(0.053801991, 0, 0.712237537, 0)
+Accelerant.SFE.Size = UDim2.new(0.753228068, 0, 0.0676687807, 0)
+Accelerant.SFE.Font = Enum.Font.Unknown
+Accelerant.SFE.Text = "Special Functions: "
+Accelerant.SFE.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.SFE.TextScaled = true
+Accelerant.SFE.TextSize = 14.000
+Accelerant.SFE.TextTransparency = 0.200
+Accelerant.SFE.TextWrapped = true
+Accelerant.SFE.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.LastUPD.Name = "LastUPD"
+Accelerant.LastUPD.Parent = Accelerant.GameInfo
+Accelerant.LastUPD.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.LastUPD.BackgroundTransparency = 1.000
+Accelerant.LastUPD.Position = UDim2.new(0.053801991, 0, 0.784887195, 0)
+Accelerant.LastUPD.Size = UDim2.new(0.753228068, 0, 0.0676687807, 0)
+Accelerant.LastUPD.Font = Enum.Font.Unknown
+Accelerant.LastUPD.Text = "Last Update:"
+Accelerant.LastUPD.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.LastUPD.TextScaled = true
+Accelerant.LastUPD.TextSize = 14.000
+Accelerant.LastUPD.TextTransparency = 0.200
+Accelerant.LastUPD.TextWrapped = true
+Accelerant.LastUPD.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.LastUPD_2.Name = "LastUPD"
+Accelerant.LastUPD_2.Parent = Accelerant.GameInfo
+Accelerant.LastUPD_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.LastUPD_2.BackgroundTransparency = 1.000
+Accelerant.LastUPD_2.Position = UDim2.new(0.0539999902, 0, 0.857537031, 0)
+Accelerant.LastUPD_2.Size = UDim2.new(0.753228068, 0, 0.0676687807, 0)
+Accelerant.LastUPD_2.Font = Enum.Font.Unknown
+Accelerant.LastUPD_2.Text = "Free Features:"
+Accelerant.LastUPD_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.LastUPD_2.TextScaled = true
+Accelerant.LastUPD_2.TextSize = 14.000
+Accelerant.LastUPD_2.TextTransparency = 0.200
+Accelerant.LastUPD_2.TextWrapped = true
+Accelerant.LastUPD_2.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Executor.Name = "Executor"
+Accelerant.Executor.Parent = Accelerant.Home_2
+Accelerant.Executor.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Accelerant.Executor.Position = UDim2.new(0.0110403011, 0, 0.629880786, 0)
+Accelerant.Executor.Size = UDim2.new(0.155199632, 0, 0.147533029, 0)
+Accelerant.Executor.Visible = false
+Accelerant.Executor.Image = "rbxassetid://11571917876"
+Accelerant.Executor.ImageTransparency = 0.700
+Accelerant.Executor.ScaleType = Enum.ScaleType.Tile
+Accelerant.Executor.SliceCenter = Rect.new(0, 0, 100, 0)
+Accelerant.Executor.SliceScale = 0.000
+Accelerant.Executor.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+Accelerant.UICorner_15.CornerRadius = UDim.new(0.0799999982, 0)
+Accelerant.UICorner_15.Parent = Accelerant.Executor
+
+Accelerant.SF.Name = "SF"
+Accelerant.SF.Parent = Accelerant.Executor
+Accelerant.SF.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.SF.BackgroundTransparency = 1.000
+Accelerant.SF.Position = UDim2.new(0.053801991, 0, 0.390261889, 0)
+Accelerant.SF.Size = UDim2.new(0.753228068, 0, 0.16613397, 0)
+Accelerant.SF.Font = Enum.Font.Unknown
+Accelerant.SF.Text = "Special Functions: Yes"
+Accelerant.SF.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.SF.TextScaled = true
+Accelerant.SF.TextSize = 14.000
+Accelerant.SF.TextTransparency = 0.200
+Accelerant.SF.TextWrapped = true
+Accelerant.SF.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.exeName.Name = "exeName"
+Accelerant.exeName.Parent = Accelerant.Executor
+Accelerant.exeName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.exeName.BackgroundTransparency = 1.000
+Accelerant.exeName.Position = UDim2.new(0.0538020059, 0, 0.0996412858, 0)
+Accelerant.exeName.Size = UDim2.new(0.753228068, 0, 0.215889454, 0)
+Accelerant.exeName.Font = Enum.Font.Unknown
+Accelerant.exeName.Text = "Unknown"
+Accelerant.exeName.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.exeName.TextScaled = true
+Accelerant.exeName.TextSize = 14.000
+Accelerant.exeName.TextTransparency = 0.200
+Accelerant.exeName.TextWrapped = true
+Accelerant.exeName.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Scripts_2.Name = "Scripts"
+Accelerant.Scripts_2.Parent = Accelerant.Accelerant
+Accelerant.Scripts_2.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Accelerant.Scripts_2.Position = UDim2.new(0.326572299, 0, 0.819222808, 0)
+Accelerant.Scripts_2.Size = UDim2.new(0.344843626, 0, 0.180484071, 0)
+Accelerant.Scripts_2.Visible = false
+Accelerant.Scripts_2.ImageColor3 = Color3.fromRGB(140, 140, 140)
+Accelerant.Scripts_2.ImageTransparency = 0.700
+Accelerant.Scripts_2.ScaleType = Enum.ScaleType.Tile
+Accelerant.Scripts_2.SliceCenter = Rect.new(0, 0, 100, 0)
+Accelerant.Scripts_2.SliceScale = 0.000
+Accelerant.Scripts_2.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+Accelerant.UICorner_16.CornerRadius = UDim.new(0.0599999987, 0)
+Accelerant.UICorner_16.Parent = Accelerant.Scripts_2
+
+Accelerant.Name_4.Name = "Name"
+Accelerant.Name_4.Parent = Accelerant.Scripts_2
+Accelerant.Name_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Name_4.BackgroundTransparency = 1.000
+Accelerant.Name_4.Position = UDim2.new(0.0355773792, 0, 0.0573245436, 0)
+Accelerant.Name_4.Size = UDim2.new(0.753228068, 0, 0.173572615, 0)
+Accelerant.Name_4.Font = Enum.Font.SourceSansBold
+Accelerant.Name_4.Text = "Scripts"
+Accelerant.Name_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Name_4.TextScaled = true
+Accelerant.Name_4.TextSize = 14.000
+Accelerant.Name_4.TextTransparency = 0.200
+Accelerant.Name_4.TextWrapped = true
+Accelerant.Name_4.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.ScrollingFrame_2.Parent = Accelerant.Scripts_2
+Accelerant.ScrollingFrame_2.Active = true
+Accelerant.ScrollingFrame_2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Accelerant.ScrollingFrame_2.BackgroundTransparency = 1.000
+Accelerant.ScrollingFrame_2.BorderSizePixel = 0
+Accelerant.ScrollingFrame_2.Position = UDim2.new(0.0345222019, 0, 0.294380158, 0)
+Accelerant.ScrollingFrame_2.Size = UDim2.new(0.929443955, 0, 0.704409659, 0)
+Accelerant.ScrollingFrame_2.CanvasSize = UDim2.new(0, 0, 0.300000012, 0)
+Accelerant.ScrollingFrame_2.ScrollBarThickness = 8
+
+Accelerant.UIListLayout_4.Parent = Accelerant.ScrollingFrame_2
+Accelerant.UIListLayout_4.HorizontalAlignment = Enum.HorizontalAlignment.Center
+Accelerant.UIListLayout_4.SortOrder = Enum.SortOrder.LayoutOrder
+Accelerant.UIListLayout_4.Padding = UDim.new(0.100000001, 0)
+
+Accelerant.infYield.Name = "infYield"
+Accelerant.infYield.Parent = Accelerant.ScrollingFrame_2
+Accelerant.infYield.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.infYield.Position = UDim2.new(0.0250000004, 0, 0.537313461, 0)
+Accelerant.infYield.Size = UDim2.new(0.949999928, 0, 0.332704782, 0)
+Accelerant.infYield.AutoButtonColor = false
+Accelerant.infYield.ScaleType = Enum.ScaleType.Fit
+Accelerant.infYield.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+Accelerant.UICorner_17.CornerRadius = UDim.new(0.200000003, 0)
+Accelerant.UICorner_17.Parent = Accelerant.infYield
+
+Accelerant.UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(224, 83, 83)), ColorSequenceKeypoint.new(0.73, Color3.fromRGB(35, 31, 31)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 30, 30))}
+Accelerant.UIGradient.Parent = Accelerant.infYield
+
+Accelerant.TextLabel_3.Parent = Accelerant.infYield
+Accelerant.TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_3.BackgroundTransparency = 1.000
+Accelerant.TextLabel_3.Position = UDim2.new(0.0190476216, 0, 0.166666687, 0)
+Accelerant.TextLabel_3.Size = UDim2.new(0.95873028, 0, 0.633333325, 0)
+Accelerant.TextLabel_3.Font = Enum.Font.SourceSans
+Accelerant.TextLabel_3.Text = "Infinite Yield"
+Accelerant.TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_3.TextScaled = true
+Accelerant.TextLabel_3.TextSize = 14.000
+Accelerant.TextLabel_3.TextWrapped = true
+Accelerant.TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.cmdx.Name = "cmdx"
+Accelerant.cmdx.Parent = Accelerant.ScrollingFrame_2
+Accelerant.cmdx.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.cmdx.Position = UDim2.new(0.0250000004, 0, 0.944322288, 0)
+Accelerant.cmdx.Size = UDim2.new(0.949999928, 0, 0.332704782, 0)
+Accelerant.cmdx.AutoButtonColor = false
+Accelerant.cmdx.ScaleType = Enum.ScaleType.Fit
+Accelerant.cmdx.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+Accelerant.UICorner_18.CornerRadius = UDim.new(0.200000003, 0)
+Accelerant.UICorner_18.Parent = Accelerant.cmdx
+
+Accelerant.UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(142, 142, 142)), ColorSequenceKeypoint.new(0.73, Color3.fromRGB(35, 31, 31)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 30, 30))}
+Accelerant.UIGradient_2.Parent = Accelerant.cmdx
+
+Accelerant.TextLabel_4.Parent = Accelerant.cmdx
+Accelerant.TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_4.BackgroundTransparency = 1.000
+Accelerant.TextLabel_4.Position = UDim2.new(0.0190476216, 0, 0.166666687, 0)
+Accelerant.TextLabel_4.Size = UDim2.new(0.95873028, 0, 0.633333325, 0)
+Accelerant.TextLabel_4.Font = Enum.Font.SourceSans
+Accelerant.TextLabel_4.Text = "CMD-X"
+Accelerant.TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_4.TextScaled = true
+Accelerant.TextLabel_4.TextSize = 14.000
+Accelerant.TextLabel_4.TextWrapped = true
+Accelerant.TextLabel_4.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.OwlHub.Name = "OwlHub"
+Accelerant.OwlHub.Parent = Accelerant.ScrollingFrame_2
+Accelerant.OwlHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.OwlHub.Position = UDim2.new(0.0250000004, 0, 1.35133016, 0)
+Accelerant.OwlHub.Size = UDim2.new(0.949999928, 0, 0.332704782, 0)
+Accelerant.OwlHub.AutoButtonColor = false
+Accelerant.OwlHub.ScaleType = Enum.ScaleType.Fit
+Accelerant.OwlHub.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+Accelerant.UICorner_19.CornerRadius = UDim.new(0.200000003, 0)
+Accelerant.UICorner_19.Parent = Accelerant.OwlHub
+
+Accelerant.UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(154, 95, 39)), ColorSequenceKeypoint.new(0.73, Color3.fromRGB(35, 31, 31)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 30, 30))}
+Accelerant.UIGradient_3.Parent = Accelerant.OwlHub
+
+Accelerant.TextLabel_5.Parent = Accelerant.OwlHub
+Accelerant.TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_5.BackgroundTransparency = 1.000
+Accelerant.TextLabel_5.Position = UDim2.new(0.0190476216, 0, 0.166666687, 0)
+Accelerant.TextLabel_5.Size = UDim2.new(0.95873028, 0, 0.633333325, 0)
+Accelerant.TextLabel_5.Font = Enum.Font.SourceSans
+Accelerant.TextLabel_5.Text = "Owl Hub"
+Accelerant.TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_5.TextScaled = true
+Accelerant.TextLabel_5.TextSize = 14.000
+Accelerant.TextLabel_5.TextWrapped = true
+Accelerant.TextLabel_5.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.DEX.Name = "DEX"
+Accelerant.DEX.Parent = Accelerant.ScrollingFrame_2
+Accelerant.DEX.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.DEX.Position = UDim2.new(0.0250000004, 0, 1.75834, 0)
+Accelerant.DEX.Size = UDim2.new(0.949999928, 0, 0.332704782, 0)
+Accelerant.DEX.AutoButtonColor = false
+Accelerant.DEX.ScaleType = Enum.ScaleType.Fit
+Accelerant.DEX.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+Accelerant.UICorner_20.CornerRadius = UDim.new(0.200000003, 0)
+Accelerant.UICorner_20.Parent = Accelerant.DEX
+
+Accelerant.UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(12, 32, 65)), ColorSequenceKeypoint.new(0.73, Color3.fromRGB(32, 32, 32)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 30, 30))}
+Accelerant.UIGradient_4.Parent = Accelerant.DEX
+
+Accelerant.TextLabel_6.Parent = Accelerant.DEX
+Accelerant.TextLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_6.BackgroundTransparency = 1.000
+Accelerant.TextLabel_6.Position = UDim2.new(0.0190476216, 0, 0.166666687, 0)
+Accelerant.TextLabel_6.Size = UDim2.new(0.95873028, 0, 0.633333325, 0)
+Accelerant.TextLabel_6.Font = Enum.Font.SourceSans
+Accelerant.TextLabel_6.Text = "DEX Explorer"
+Accelerant.TextLabel_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_6.TextScaled = true
+Accelerant.TextLabel_6.TextSize = 14.000
+Accelerant.TextLabel_6.TextWrapped = true
+Accelerant.TextLabel_6.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.AddScript.Name = "AddScript"
+Accelerant.AddScript.Parent = Accelerant.Scripts_2
+Accelerant.AddScript.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.AddScript.BackgroundTransparency = 1.000
+Accelerant.AddScript.Position = UDim2.new(0.884299517, 0, 0.0573241487, 0)
+Accelerant.AddScript.Size = UDim2.new(0.0557666346, 0, 0.195001379, 0)
+Accelerant.AddScript.Image = "rbxassetid://11598816137"
+Accelerant.AddScript.ImageTransparency = 0.100
+
+Accelerant.Combat_2.Name = "Combat"
+Accelerant.Combat_2.Parent = Accelerant.Accelerant
+
+Accelerant.Aimbot.Name = "Aimbot"
+Accelerant.Aimbot.Parent = Accelerant.Combat_2
+Accelerant.Aimbot.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Accelerant.Aimbot.Position = UDim2.new(0.0128718056, 0, 0.0202379078, 0)
+Accelerant.Aimbot.Size = UDim2.new(0.176652238, 0, 0.32813099, 0)
+Accelerant.Aimbot.Visible = false
+Accelerant.Aimbot.Image = "rbxassetid://11599429072"
+Accelerant.Aimbot.ImageColor3 = Color3.fromRGB(221, 13, 13)
+Accelerant.Aimbot.ImageTransparency = 0.700
+Accelerant.Aimbot.ScaleType = Enum.ScaleType.Tile
+Accelerant.Aimbot.SliceCenter = Rect.new(0, 0, 100, 0)
+Accelerant.Aimbot.SliceScale = 0.000
+Accelerant.Aimbot.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+Accelerant.UICorner_21.CornerRadius = UDim.new(0.0399999991, 0)
+Accelerant.UICorner_21.Parent = Accelerant.Aimbot
+
+Accelerant.Name_5.Name = "Name"
+Accelerant.Name_5.Parent = Accelerant.Aimbot
+Accelerant.Name_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Name_5.BackgroundTransparency = 1.000
+Accelerant.Name_5.Position = UDim2.new(0.0473782867, 0, 0.0342982151, 0)
+Accelerant.Name_5.Size = UDim2.new(0.765028894, 0, 0.146546811, 0)
+Accelerant.Name_5.Font = Enum.Font.SourceSansBold
+Accelerant.Name_5.Text = "Aimbot"
+Accelerant.Name_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Name_5.TextScaled = true
+Accelerant.Name_5.TextSize = 14.000
+Accelerant.Name_5.TextTransparency = 0.200
+Accelerant.Name_5.TextWrapped = true
+Accelerant.Name_5.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.ScrollingFrame_3.Parent = Accelerant.Aimbot
+Accelerant.ScrollingFrame_3.Active = true
+Accelerant.ScrollingFrame_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.ScrollingFrame_3.BackgroundTransparency = 1.000
+Accelerant.ScrollingFrame_3.Position = UDim2.new(0, 0, 0.257237613, 0)
+Accelerant.ScrollingFrame_3.Size = UDim2.new(1.00000012, 0, 0.684576035, 0)
+Accelerant.ScrollingFrame_3.CanvasSize = UDim2.new(0, 0, 0, 0)
+
+Accelerant.UIListLayout_5.Parent = Accelerant.ScrollingFrame_3
+Accelerant.UIListLayout_5.HorizontalAlignment = Enum.HorizontalAlignment.Center
+Accelerant.UIListLayout_5.SortOrder = Enum.SortOrder.LayoutOrder
+Accelerant.UIListLayout_5.Padding = UDim.new(0.0399999991, 0)
+
+Accelerant.Aimbot_2.Name = "Aimbot"
+Accelerant.Aimbot_2.Parent = Accelerant.ScrollingFrame_3
+Accelerant.Aimbot_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Aimbot_2.BackgroundTransparency = 1.000
+Accelerant.Aimbot_2.Position = UDim2.new(0.19061105, 0, 0, 0)
+Accelerant.Aimbot_2.Size = UDim2.new(0.618777931, 0, 0.136530876, 0)
+Accelerant.Aimbot_2.Font = Enum.Font.Nunito
+Accelerant.Aimbot_2.Text = "Aimbot"
+Accelerant.Aimbot_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Aimbot_2.TextScaled = true
+Accelerant.Aimbot_2.TextSize = 14.000
+Accelerant.Aimbot_2.TextTransparency = 0.200
+Accelerant.Aimbot_2.TextWrapped = true
+Accelerant.Aimbot_2.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Check.Name = "Check"
+Accelerant.Check.Parent = Accelerant.Aimbot_2
+Accelerant.Check.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Accelerant.Check.Position = UDim2.new(-0.203514352, 0, 0.077683121, 0)
+Accelerant.Check.Size = UDim2.new(0.131448701, 0, 0.81502068, 0)
+Accelerant.Check.AutoButtonColor = false
+
+Accelerant.UICorner_22.CornerRadius = UDim.new(0.349999994, 0)
+Accelerant.UICorner_22.Parent = Accelerant.Check
+
+Accelerant.V.Name = "V"
+Accelerant.V.Parent = Accelerant.Check
+Accelerant.V.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.V.BackgroundTransparency = 1.000
+Accelerant.V.Position = UDim2.new(0.150000006, 0, -0.150000006, 0)
+Accelerant.V.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.V.Visible = false
+Accelerant.V.Image = "rbxassetid://11599097580"
+Accelerant.V.ImageColor3 = Color3.fromRGB(0, 255, 200)
+
+Accelerant.TeamCheck.Name = "TeamCheck"
+Accelerant.TeamCheck.Parent = Accelerant.ScrollingFrame_3
+Accelerant.TeamCheck.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TeamCheck.BackgroundTransparency = 1.000
+Accelerant.TeamCheck.Position = UDim2.new(0.19061105, 0, 0.175826982, 0)
+Accelerant.TeamCheck.Size = UDim2.new(0.618777931, 0, 0.136530876, 0)
+Accelerant.TeamCheck.Font = Enum.Font.Nunito
+Accelerant.TeamCheck.Text = "Team Check"
+Accelerant.TeamCheck.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TeamCheck.TextScaled = true
+Accelerant.TeamCheck.TextSize = 14.000
+Accelerant.TeamCheck.TextTransparency = 0.200
+Accelerant.TeamCheck.TextWrapped = true
+Accelerant.TeamCheck.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Check_2.Name = "Check"
+Accelerant.Check_2.Parent = Accelerant.TeamCheck
+Accelerant.Check_2.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Accelerant.Check_2.Position = UDim2.new(-0.203514352, 0, 0.077683121, 0)
+Accelerant.Check_2.Size = UDim2.new(0.131448701, 0, 0.81502068, 0)
+Accelerant.Check_2.AutoButtonColor = false
+
+Accelerant.UICorner_23.CornerRadius = UDim.new(0.349999994, 0)
+Accelerant.UICorner_23.Parent = Accelerant.Check_2
+
+Accelerant.V_2.Name = "V"
+Accelerant.V_2.Parent = Accelerant.Check_2
+Accelerant.V_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.V_2.BackgroundTransparency = 1.000
+Accelerant.V_2.Position = UDim2.new(0.150000006, 0, -0.150000006, 0)
+Accelerant.V_2.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.V_2.Image = "rbxassetid://11599097580"
+Accelerant.V_2.ImageColor3 = Color3.fromRGB(0, 255, 200)
+
+Accelerant.AutoWCheck.Name = "AutoWCheck"
+Accelerant.AutoWCheck.Parent = Accelerant.ScrollingFrame_3
+Accelerant.AutoWCheck.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.AutoWCheck.BackgroundTransparency = 1.000
+Accelerant.AutoWCheck.Position = UDim2.new(0.19061105, 0, 0.351654023, 0)
+Accelerant.AutoWCheck.Size = UDim2.new(0.618777931, 0, 0.136530876, 0)
+Accelerant.AutoWCheck.Font = Enum.Font.Nunito
+Accelerant.AutoWCheck.Text = "Auto wall check"
+Accelerant.AutoWCheck.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.AutoWCheck.TextScaled = true
+Accelerant.AutoWCheck.TextSize = 14.000
+Accelerant.AutoWCheck.TextTransparency = 0.200
+Accelerant.AutoWCheck.TextWrapped = true
+Accelerant.AutoWCheck.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Check_3.Name = "Check"
+Accelerant.Check_3.Parent = Accelerant.AutoWCheck
+Accelerant.Check_3.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Accelerant.Check_3.Position = UDim2.new(-0.203514352, 0, 0.077683121, 0)
+Accelerant.Check_3.Size = UDim2.new(0.131448701, 0, 0.81502068, 0)
+Accelerant.Check_3.AutoButtonColor = false
+
+Accelerant.UICorner_24.CornerRadius = UDim.new(0.349999994, 0)
+Accelerant.UICorner_24.Parent = Accelerant.Check_3
+
+Accelerant.V_3.Name = "V"
+Accelerant.V_3.Parent = Accelerant.Check_3
+Accelerant.V_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.V_3.BackgroundTransparency = 1.000
+Accelerant.V_3.Position = UDim2.new(0.150000006, 0, -0.150000006, 0)
+Accelerant.V_3.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.V_3.Image = "rbxassetid://11599097580"
+Accelerant.V_3.ImageColor3 = Color3.fromRGB(0, 255, 200)
+
+Accelerant.useFov.Name = "useFov"
+Accelerant.useFov.Parent = Accelerant.ScrollingFrame_3
+Accelerant.useFov.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.useFov.BackgroundTransparency = 1.000
+Accelerant.useFov.Position = UDim2.new(0.19061105, 0, 0.527481019, 0)
+Accelerant.useFov.Size = UDim2.new(0.618777931, 0, 0.136530876, 0)
+Accelerant.useFov.Font = Enum.Font.Nunito
+Accelerant.useFov.Text = "Use FOV"
+Accelerant.useFov.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.useFov.TextScaled = true
+Accelerant.useFov.TextSize = 14.000
+Accelerant.useFov.TextTransparency = 0.200
+Accelerant.useFov.TextWrapped = true
+Accelerant.useFov.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Check_4.Name = "Check"
+Accelerant.Check_4.Parent = Accelerant.useFov
+Accelerant.Check_4.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Accelerant.Check_4.Position = UDim2.new(-0.203514352, 0, 0.077683121, 0)
+Accelerant.Check_4.Size = UDim2.new(0.131448701, 0, 0.81502068, 0)
+Accelerant.Check_4.AutoButtonColor = false
+
+Accelerant.UICorner_25.CornerRadius = UDim.new(0.349999994, 0)
+Accelerant.UICorner_25.Parent = Accelerant.Check_4
+
+Accelerant.V_4.Name = "V"
+Accelerant.V_4.Parent = Accelerant.Check_4
+Accelerant.V_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.V_4.BackgroundTransparency = 1.000
+Accelerant.V_4.Position = UDim2.new(0.150000006, 0, -0.150000006, 0)
+Accelerant.V_4.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.V_4.Visible = false
+Accelerant.V_4.Image = "rbxassetid://11599097580"
+Accelerant.V_4.ImageColor3 = Color3.fromRGB(0, 255, 200)
+
+Accelerant.ScreenCheck.Name = "ScreenCheck"
+Accelerant.ScreenCheck.Parent = Accelerant.ScrollingFrame_3
+Accelerant.ScreenCheck.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.ScreenCheck.BackgroundTransparency = 1.000
+Accelerant.ScreenCheck.Position = UDim2.new(0.19061105, 0, 0.703307927, 0)
+Accelerant.ScreenCheck.Size = UDim2.new(0.618777931, 0, 0.136530876, 0)
+Accelerant.ScreenCheck.Font = Enum.Font.Nunito
+Accelerant.ScreenCheck.Text = "Screen Check"
+Accelerant.ScreenCheck.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.ScreenCheck.TextScaled = true
+Accelerant.ScreenCheck.TextSize = 14.000
+Accelerant.ScreenCheck.TextTransparency = 0.200
+Accelerant.ScreenCheck.TextWrapped = true
+Accelerant.ScreenCheck.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Check_5.Name = "Check"
+Accelerant.Check_5.Parent = Accelerant.ScreenCheck
+Accelerant.Check_5.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Accelerant.Check_5.Position = UDim2.new(-0.203514352, 0, 0.077683121, 0)
+Accelerant.Check_5.Size = UDim2.new(0.131448701, 0, 0.81502068, 0)
+Accelerant.Check_5.AutoButtonColor = false
+
+Accelerant.UICorner_26.CornerRadius = UDim.new(0.349999994, 0)
+Accelerant.UICorner_26.Parent = Accelerant.Check_5
+
+Accelerant.V_5.Name = "V"
+Accelerant.V_5.Parent = Accelerant.Check_5
+Accelerant.V_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.V_5.BackgroundTransparency = 1.000
+Accelerant.V_5.Position = UDim2.new(0.150000006, 0, -0.150000006, 0)
+Accelerant.V_5.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.V_5.Image = "rbxassetid://11599097580"
+Accelerant.V_5.ImageColor3 = Color3.fromRGB(0, 255, 200)
+
+Accelerant.ShowFov.Name = "ShowFov"
+Accelerant.ShowFov.Parent = Accelerant.ScrollingFrame_3
+Accelerant.ShowFov.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.ShowFov.BackgroundTransparency = 1.000
+Accelerant.ShowFov.Position = UDim2.new(0.19061105, 0, 0.879135013, 0)
+Accelerant.ShowFov.Size = UDim2.new(0.618777931, 0, 0.136530876, 0)
+Accelerant.ShowFov.Font = Enum.Font.Nunito
+Accelerant.ShowFov.Text = "Show FOV"
+Accelerant.ShowFov.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.ShowFov.TextScaled = true
+Accelerant.ShowFov.TextSize = 14.000
+Accelerant.ShowFov.TextTransparency = 0.200
+Accelerant.ShowFov.TextWrapped = true
+Accelerant.ShowFov.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Check_6.Name = "Check"
+Accelerant.Check_6.Parent = Accelerant.ShowFov
+Accelerant.Check_6.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Accelerant.Check_6.Position = UDim2.new(-0.203514352, 0, 0.077683121, 0)
+Accelerant.Check_6.Size = UDim2.new(0.131448701, 0, 0.81502068, 0)
+Accelerant.Check_6.AutoButtonColor = false
+
+Accelerant.UICorner_27.CornerRadius = UDim.new(0.349999994, 0)
+Accelerant.UICorner_27.Parent = Accelerant.Check_6
+
+Accelerant.V_6.Name = "V"
+Accelerant.V_6.Parent = Accelerant.Check_6
+Accelerant.V_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.V_6.BackgroundTransparency = 1.000
+Accelerant.V_6.Position = UDim2.new(0.150000006, 0, -0.150000006, 0)
+Accelerant.V_6.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.V_6.Image = "rbxassetid://11599097580"
+Accelerant.V_6.ImageColor3 = Color3.fromRGB(0, 255, 200)
+
+Accelerant.ESP.Name = "ESP"
+Accelerant.ESP.Parent = Accelerant.Combat_2
+Accelerant.ESP.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Accelerant.ESP.Position = UDim2.new(0.0128718019, 0, 0.378271729, 0)
+Accelerant.ESP.Size = UDim2.new(0.176652238, 0, 0.445449233, 0)
+Accelerant.ESP.Visible = false
+Accelerant.ESP.Image = "rbxassetid://11599252984"
+Accelerant.ESP.ImageColor3 = Color3.fromRGB(37, 176, 221)
+Accelerant.ESP.ImageTransparency = 0.700
+Accelerant.ESP.ScaleType = Enum.ScaleType.Tile
+Accelerant.ESP.SliceCenter = Rect.new(0, 0, 100, 0)
+Accelerant.ESP.SliceScale = 0.000
+Accelerant.ESP.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+Accelerant.UICorner_28.CornerRadius = UDim.new(0.0399999991, 0)
+Accelerant.UICorner_28.Parent = Accelerant.ESP
+
+Accelerant.ScrollingFrame_4.Parent = Accelerant.ESP
+Accelerant.ScrollingFrame_4.Active = true
+Accelerant.ScrollingFrame_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.ScrollingFrame_4.BackgroundTransparency = 1.000
+Accelerant.ScrollingFrame_4.Position = UDim2.new(0, 0, 0.161873206, 0)
+Accelerant.ScrollingFrame_4.Size = UDim2.new(1.00000012, 0, 0.808158815, 0)
+Accelerant.ScrollingFrame_4.CanvasSize = UDim2.new(0, 0, 0, 0)
+
+Accelerant.Box.Name = "Box"
+Accelerant.Box.Parent = Accelerant.ScrollingFrame_4
+Accelerant.Box.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Box.BackgroundTransparency = 1.000
+Accelerant.Box.Position = UDim2.new(0.190611035, 0, 0, 0)
+Accelerant.Box.Size = UDim2.new(0.618777931, 0, 0.0927983895, 0)
+Accelerant.Box.Font = Enum.Font.Nunito
+Accelerant.Box.Text = "Box"
+Accelerant.Box.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Box.TextScaled = true
+Accelerant.Box.TextSize = 14.000
+Accelerant.Box.TextTransparency = 0.200
+Accelerant.Box.TextWrapped = true
+Accelerant.Box.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Check_7.Name = "Check"
+Accelerant.Check_7.Parent = Accelerant.Box
+Accelerant.Check_7.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Accelerant.Check_7.Position = UDim2.new(-0.231476828, 0, 0.0776837841, 0)
+Accelerant.Check_7.Size = UDim2.new(0.131448701, 0, 0.81502068, 0)
+Accelerant.Check_7.AutoButtonColor = false
+
+Accelerant.UICorner_29.CornerRadius = UDim.new(0.349999994, 0)
+Accelerant.UICorner_29.Parent = Accelerant.Check_7
+
+Accelerant.V_7.Name = "V"
+Accelerant.V_7.Parent = Accelerant.Check_7
+Accelerant.V_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.V_7.BackgroundTransparency = 1.000
+Accelerant.V_7.Position = UDim2.new(0.150000006, 0, -0.150000006, 0)
+Accelerant.V_7.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.V_7.Visible = false
+Accelerant.V_7.Image = "rbxassetid://11599097580"
+Accelerant.V_7.ImageColor3 = Color3.fromRGB(0, 255, 200)
+
+Accelerant.ESPNames.Name = "ESPNames"
+Accelerant.ESPNames.Parent = Accelerant.ScrollingFrame_4
+Accelerant.ESPNames.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.ESPNames.BackgroundTransparency = 1.000
+Accelerant.ESPNames.Position = UDim2.new(0.190611035, 0, 0.0927984118, 0)
+Accelerant.ESPNames.Size = UDim2.new(0.618777931, 0, 0.0927983895, 0)
+Accelerant.ESPNames.Font = Enum.Font.Nunito
+Accelerant.ESPNames.Text = "Names"
+Accelerant.ESPNames.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.ESPNames.TextScaled = true
+Accelerant.ESPNames.TextSize = 14.000
+Accelerant.ESPNames.TextTransparency = 0.200
+Accelerant.ESPNames.TextWrapped = true
+Accelerant.ESPNames.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Check_8.Name = "Check"
+Accelerant.Check_8.Parent = Accelerant.ESPNames
+Accelerant.Check_8.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Accelerant.Check_8.Position = UDim2.new(-0.231476828, 0, 0.077682212, 0)
+Accelerant.Check_8.Size = UDim2.new(0.131448701, 0, 0.81502068, 0)
+Accelerant.Check_8.AutoButtonColor = false
+
+Accelerant.UICorner_30.CornerRadius = UDim.new(0.349999994, 0)
+Accelerant.UICorner_30.Parent = Accelerant.Check_8
+
+Accelerant.V_8.Name = "V"
+Accelerant.V_8.Parent = Accelerant.Check_8
+Accelerant.V_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.V_8.BackgroundTransparency = 1.000
+Accelerant.V_8.Position = UDim2.new(0.150000006, 0, -0.150000006, 0)
+Accelerant.V_8.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.V_8.Image = "rbxassetid://11599097580"
+Accelerant.V_8.ImageColor3 = Color3.fromRGB(0, 255, 200)
+
+Accelerant.Enemies.Name = "Enemies"
+Accelerant.Enemies.Parent = Accelerant.ScrollingFrame_4
+Accelerant.Enemies.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Enemies.BackgroundTransparency = 1.000
+Accelerant.Enemies.Position = UDim2.new(0.190611035, 0, 0.185596824, 0)
+Accelerant.Enemies.Size = UDim2.new(0.618777931, 0, 0.0927983895, 0)
+Accelerant.Enemies.Font = Enum.Font.Nunito
+Accelerant.Enemies.Text = "Enemies"
+Accelerant.Enemies.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Enemies.TextScaled = true
+Accelerant.Enemies.TextSize = 14.000
+Accelerant.Enemies.TextTransparency = 0.200
+Accelerant.Enemies.TextWrapped = true
+Accelerant.Enemies.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Check_9.Name = "Check"
+Accelerant.Check_9.Parent = Accelerant.Enemies
+Accelerant.Check_9.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Accelerant.Check_9.Position = UDim2.new(-0.231476828, 0, 0.077682212, 0)
+Accelerant.Check_9.Size = UDim2.new(0.131448701, 0, 0.81502068, 0)
+Accelerant.Check_9.AutoButtonColor = false
+
+Accelerant.UICorner_31.CornerRadius = UDim.new(0.349999994, 0)
+Accelerant.UICorner_31.Parent = Accelerant.Check_9
+
+Accelerant.V_9.Name = "V"
+Accelerant.V_9.Parent = Accelerant.Check_9
+Accelerant.V_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.V_9.BackgroundTransparency = 1.000
+Accelerant.V_9.Position = UDim2.new(0.150000006, 0, -0.150000006, 0)
+Accelerant.V_9.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.V_9.Image = "rbxassetid://11599097580"
+Accelerant.V_9.ImageColor3 = Color3.fromRGB(0, 255, 200)
+
+Accelerant.Teamates.Name = "Teamates"
+Accelerant.Teamates.Parent = Accelerant.ScrollingFrame_4
+Accelerant.Teamates.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Teamates.BackgroundTransparency = 1.000
+Accelerant.Teamates.Position = UDim2.new(0.190611035, 0, 0.278395087, 0)
+Accelerant.Teamates.Size = UDim2.new(0.618777931, 0, 0.0927983895, 0)
+Accelerant.Teamates.Font = Enum.Font.Nunito
+Accelerant.Teamates.Text = "Teamates"
+Accelerant.Teamates.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Teamates.TextScaled = true
+Accelerant.Teamates.TextSize = 14.000
+Accelerant.Teamates.TextTransparency = 0.200
+Accelerant.Teamates.TextWrapped = true
+Accelerant.Teamates.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Check_10.Name = "Check"
+Accelerant.Check_10.Parent = Accelerant.Teamates
+Accelerant.Check_10.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Accelerant.Check_10.Position = UDim2.new(-0.231476828, 0, 0.0776853636, 0)
+Accelerant.Check_10.Size = UDim2.new(0.131448701, 0, 0.81502068, 0)
+Accelerant.Check_10.AutoButtonColor = false
+
+Accelerant.UICorner_32.CornerRadius = UDim.new(0.349999994, 0)
+Accelerant.UICorner_32.Parent = Accelerant.Check_10
+
+Accelerant.V_10.Name = "V"
+Accelerant.V_10.Parent = Accelerant.Check_10
+Accelerant.V_10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.V_10.BackgroundTransparency = 1.000
+Accelerant.V_10.Position = UDim2.new(0.150000006, 0, -0.150000006, 0)
+Accelerant.V_10.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.V_10.Visible = false
+Accelerant.V_10.Image = "rbxassetid://11599097580"
+Accelerant.V_10.ImageColor3 = Color3.fromRGB(0, 255, 200)
+
+Accelerant.UIListLayout_6.Parent = Accelerant.ScrollingFrame_4
+Accelerant.UIListLayout_6.HorizontalAlignment = Enum.HorizontalAlignment.Center
+Accelerant.UIListLayout_6.SortOrder = Enum.SortOrder.LayoutOrder
+Accelerant.UIListLayout_6.Padding = UDim.new(0.0199999996, 0)
+
+Accelerant.ESP_2.Name = "ESP"
+Accelerant.ESP_2.Parent = Accelerant.ScrollingFrame_4
+Accelerant.ESP_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.ESP_2.BackgroundTransparency = 1.000
+Accelerant.ESP_2.Position = UDim2.new(0.190611035, 0, 0.278395087, 0)
+Accelerant.ESP_2.Size = UDim2.new(0.618777931, 0, 0.0927983895, 0)
+Accelerant.ESP_2.Font = Enum.Font.Nunito
+Accelerant.ESP_2.Text = "ESP"
+Accelerant.ESP_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.ESP_2.TextScaled = true
+Accelerant.ESP_2.TextSize = 14.000
+Accelerant.ESP_2.TextTransparency = 0.200
+Accelerant.ESP_2.TextWrapped = true
+Accelerant.ESP_2.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Check_11.Name = "Check"
+Accelerant.Check_11.Parent = Accelerant.ESP_2
+Accelerant.Check_11.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Accelerant.Check_11.Position = UDim2.new(-0.231476828, 0, 0.0776853636, 0)
+Accelerant.Check_11.Size = UDim2.new(0.131448701, 0, 0.81502068, 0)
+Accelerant.Check_11.AutoButtonColor = false
+
+Accelerant.UICorner_33.CornerRadius = UDim.new(0.349999994, 0)
+Accelerant.UICorner_33.Parent = Accelerant.Check_11
+
+Accelerant.V_11.Name = "V"
+Accelerant.V_11.Parent = Accelerant.Check_11
+Accelerant.V_11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.V_11.BackgroundTransparency = 1.000
+Accelerant.V_11.Position = UDim2.new(0.150000006, 0, -0.150000006, 0)
+Accelerant.V_11.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.V_11.Visible = false
+Accelerant.V_11.Image = "rbxassetid://11599097580"
+Accelerant.V_11.ImageColor3 = Color3.fromRGB(0, 255, 200)
+
+Accelerant.Tracers.Name = "Tracers"
+Accelerant.Tracers.Parent = Accelerant.ScrollingFrame_4
+Accelerant.Tracers.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Tracers.BackgroundTransparency = 1.000
+Accelerant.Tracers.Position = UDim2.new(0.190611035, 0, 0.278395087, 0)
+Accelerant.Tracers.Size = UDim2.new(0.618777931, 0, 0.0927983895, 0)
+Accelerant.Tracers.Font = Enum.Font.Nunito
+Accelerant.Tracers.Text = "Tracers"
+Accelerant.Tracers.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Tracers.TextScaled = true
+Accelerant.Tracers.TextSize = 14.000
+Accelerant.Tracers.TextTransparency = 0.200
+Accelerant.Tracers.TextWrapped = true
+Accelerant.Tracers.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Check_12.Name = "Check"
+Accelerant.Check_12.Parent = Accelerant.Tracers
+Accelerant.Check_12.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Accelerant.Check_12.Position = UDim2.new(-0.231476828, 0, 0.0776853636, 0)
+Accelerant.Check_12.Size = UDim2.new(0.131448701, 0, 0.81502068, 0)
+Accelerant.Check_12.AutoButtonColor = false
+
+Accelerant.UICorner_34.CornerRadius = UDim.new(0.349999994, 0)
+Accelerant.UICorner_34.Parent = Accelerant.Check_12
+
+Accelerant.V_12.Name = "V"
+Accelerant.V_12.Parent = Accelerant.Check_12
+Accelerant.V_12.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.V_12.BackgroundTransparency = 1.000
+Accelerant.V_12.Position = UDim2.new(0.150000006, 0, -0.150000006, 0)
+Accelerant.V_12.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.V_12.Image = "rbxassetid://11599097580"
+Accelerant.V_12.ImageColor3 = Color3.fromRGB(0, 255, 200)
+
+Accelerant.wCheck.Name = "wCheck"
+Accelerant.wCheck.Parent = Accelerant.ScrollingFrame_4
+Accelerant.wCheck.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.wCheck.BackgroundTransparency = 1.000
+Accelerant.wCheck.Position = UDim2.new(0.190611035, 0, 0.278395087, 0)
+Accelerant.wCheck.Size = UDim2.new(0.618777931, 0, 0.0927983895, 0)
+Accelerant.wCheck.Font = Enum.Font.Nunito
+Accelerant.wCheck.Text = "WallCheck"
+Accelerant.wCheck.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.wCheck.TextScaled = true
+Accelerant.wCheck.TextSize = 14.000
+Accelerant.wCheck.TextTransparency = 0.200
+Accelerant.wCheck.TextWrapped = true
+Accelerant.wCheck.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Check_13.Name = "Check"
+Accelerant.Check_13.Parent = Accelerant.wCheck
+Accelerant.Check_13.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Accelerant.Check_13.Position = UDim2.new(-0.231476828, 0, 0.0776853636, 0)
+Accelerant.Check_13.Size = UDim2.new(0.131448701, 0, 0.81502068, 0)
+Accelerant.Check_13.AutoButtonColor = false
+
+Accelerant.UICorner_35.CornerRadius = UDim.new(0.349999994, 0)
+Accelerant.UICorner_35.Parent = Accelerant.Check_13
+
+Accelerant.V_13.Name = "V"
+Accelerant.V_13.Parent = Accelerant.Check_13
+Accelerant.V_13.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.V_13.BackgroundTransparency = 1.000
+Accelerant.V_13.Position = UDim2.new(0.150000006, 0, -0.150000006, 0)
+Accelerant.V_13.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.V_13.Image = "rbxassetid://11599097580"
+Accelerant.V_13.ImageColor3 = Color3.fromRGB(0, 255, 200)
+
+Accelerant.Name_6.Name = "Name"
+Accelerant.Name_6.Parent = Accelerant.ESP
+Accelerant.Name_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Name_6.BackgroundTransparency = 1.000
+Accelerant.Name_6.Position = UDim2.new(0.0473782867, 0, 0.034298189, 0)
+Accelerant.Name_6.Size = UDim2.new(0.765028894, 0, 0.0890112668, 0)
+Accelerant.Name_6.Font = Enum.Font.SourceSansBold
+Accelerant.Name_6.Text = "ESP"
+Accelerant.Name_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Name_6.TextScaled = true
+Accelerant.Name_6.TextSize = 14.000
+Accelerant.Name_6.TextTransparency = 0.200
+Accelerant.Name_6.TextWrapped = true
+Accelerant.Name_6.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.AddScript_2.Name = "AddScript"
+Accelerant.AddScript_2.Parent = Accelerant.Accelerant
+Accelerant.AddScript_2.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Accelerant.AddScript_2.Position = UDim2.new(0.326572359, 0, 0.287606865, 0)
+Accelerant.AddScript_2.Size = UDim2.new(0.344843596, 0, 0.315859556, 0)
+Accelerant.AddScript_2.Visible = false
+Accelerant.AddScript_2.ImageColor3 = Color3.fromRGB(140, 140, 140)
+Accelerant.AddScript_2.ImageTransparency = 0.700
+Accelerant.AddScript_2.ScaleType = Enum.ScaleType.Tile
+Accelerant.AddScript_2.SliceCenter = Rect.new(0, 0, 100, 0)
+Accelerant.AddScript_2.SliceScale = 0.000
+Accelerant.AddScript_2.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+Accelerant.UICorner_36.CornerRadius = UDim.new(0.0599999987, 0)
+Accelerant.UICorner_36.Parent = Accelerant.AddScript_2
+
+Accelerant.Name_7.Name = "Name"
+Accelerant.Name_7.Parent = Accelerant.AddScript_2
+Accelerant.Name_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Name_7.BackgroundTransparency = 1.000
+Accelerant.Name_7.Position = UDim2.new(0.0355773866, 0, 0.0574843362, 0)
+Accelerant.Name_7.Size = UDim2.new(0.753228068, 0, 0.103362247, 0)
+Accelerant.Name_7.Font = Enum.Font.SourceSansBold
+Accelerant.Name_7.Text = "Upload Script"
+Accelerant.Name_7.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Name_7.TextScaled = true
+Accelerant.Name_7.TextSize = 14.000
+Accelerant.Name_7.TextTransparency = 0.200
+Accelerant.Name_7.TextWrapped = true
+Accelerant.Name_7.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.sName.Name = "sName"
+Accelerant.sName.Parent = Accelerant.AddScript_2
+Accelerant.sName.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.sName.Position = UDim2.new(0.0570465326, 0, 0.244806215, 0)
+Accelerant.sName.Size = UDim2.new(0.880999982, 0, 0.153496951, 0)
+Accelerant.sName.ClearTextOnFocus = false
+Accelerant.sName.Font = Enum.Font.Unknown
+Accelerant.sName.PlaceholderText = "Script name"
+Accelerant.sName.Text = ""
+Accelerant.sName.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.sName.TextScaled = true
+Accelerant.sName.TextSize = 14.000
+Accelerant.sName.TextWrapped = true
+Accelerant.sName.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.UICorner_37.CornerRadius = UDim.new(0.25, 0)
+Accelerant.UICorner_37.Parent = Accelerant.sName
+
+Accelerant.Open.Name = "Open"
+Accelerant.Open.Parent = Accelerant.AddScript_2
+Accelerant.Open.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.Open.Position = UDim2.new(0.856311142, 0, 0.427910298, 0)
+Accelerant.Open.Size = UDim2.new(0.0817534029, 0, 0.153324455, 0)
+Accelerant.Open.AutoButtonColor = false
+Accelerant.Open.Image = "rbxassetid://11608392529"
+Accelerant.Open.ImageTransparency = 0.100
+
+Accelerant.UICorner_38.CornerRadius = UDim.new(0.300000012, 0)
+Accelerant.UICorner_38.Parent = Accelerant.Open
+
+Accelerant.Close.Name = "Close"
+Accelerant.Close.Parent = Accelerant.AddScript_2
+Accelerant.Close.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.Close.Position = UDim2.new(0.920412123, 0, 0.0551489964, 0)
+Accelerant.Close.Size = UDim2.new(0.0475362316, 0, 0.100096554, 0)
+Accelerant.Close.AutoButtonColor = false
+Accelerant.Close.Image = "rbxassetid://11608412925"
+Accelerant.Close.ImageColor3 = Color3.fromRGB(255, 100, 50)
+Accelerant.Close.ImageTransparency = 0.100
+
+Accelerant.UICorner_39.CornerRadius = UDim.new(0.300000012, 0)
+Accelerant.UICorner_39.Parent = Accelerant.Close
+
+Accelerant.ColorPicker.Name = "ColorPicker"
+Accelerant.ColorPicker.Parent = Accelerant.AddScript_2
+Accelerant.ColorPicker.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.ColorPicker.Position = UDim2.new(0.856311142, 0, 0.61070323, 0)
+Accelerant.ColorPicker.Size = UDim2.new(0.0817534029, 0, 0.153324455, 0)
+Accelerant.ColorPicker.AutoButtonColor = false
+Accelerant.ColorPicker.Image = "rbxassetid://11608980956"
+Accelerant.ColorPicker.ImageTransparency = 0.100
+
+Accelerant.UICorner_40.CornerRadius = UDim.new(0.300000012, 0)
+Accelerant.UICorner_40.Parent = Accelerant.ColorPicker
+
+Accelerant.sColor.Name = "sColor"
+Accelerant.sColor.Parent = Accelerant.AddScript_2
+Accelerant.sColor.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.sColor.Position = UDim2.new(0.0570000112, 0, 0.610703111, 0)
+Accelerant.sColor.Size = UDim2.new(0.769261837, 0, 0.153324425, 0)
+Accelerant.sColor.ClearTextOnFocus = false
+Accelerant.sColor.Font = Enum.Font.Unknown
+Accelerant.sColor.PlaceholderText = "RGB Code"
+Accelerant.sColor.Text = ""
+Accelerant.sColor.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.sColor.TextScaled = true
+Accelerant.sColor.TextSize = 14.000
+Accelerant.sColor.TextWrapped = true
+Accelerant.sColor.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.UICorner_41.CornerRadius = UDim.new(0.25, 0)
+Accelerant.UICorner_41.Parent = Accelerant.sColor
+
+Accelerant.Confirm.Name = "Confirm"
+Accelerant.Confirm.Parent = Accelerant.AddScript_2
+Accelerant.Confirm.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.Confirm.Position = UDim2.new(0.323263675, 0, 0.808173537, 0)
+Accelerant.Confirm.Size = UDim2.new(0.358125448, 0, 0.133459851, 0)
+Accelerant.Confirm.AutoButtonColor = false
+Accelerant.Confirm.Font = Enum.Font.Nunito
+Accelerant.Confirm.Text = "Confirm"
+Accelerant.Confirm.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Confirm.TextScaled = true
+Accelerant.Confirm.TextSize = 14.000
+Accelerant.Confirm.TextWrapped = true
+
+Accelerant.UICorner_42.CornerRadius = UDim.new(0.300000012, 0)
+Accelerant.UICorner_42.Parent = Accelerant.Confirm
+
+Accelerant.Selector.Name = "Selector"
+Accelerant.Selector.Parent = Accelerant.AddScript_2
+Accelerant.Selector.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Accelerant.Selector.BorderSizePixel = 0
+Accelerant.Selector.Position = UDim2.new(1.03077602, 0, -0.00319314585, 0)
+Accelerant.Selector.Size = UDim2.new(0.455067456, 0, 1.00319314, 0)
+Accelerant.Selector.Visible = false
+
+Accelerant.RGB.Name = "RGB"
+Accelerant.RGB.Parent = Accelerant.Selector
+Accelerant.RGB.AnchorPoint = Vector2.new(0.5, 0)
+Accelerant.RGB.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.RGB.BorderColor3 = Color3.fromRGB(40, 40, 40)
+Accelerant.RGB.BorderSizePixel = 2
+Accelerant.RGB.Position = UDim2.new(0.400000006, 0, 0.100000001, 0)
+Accelerant.RGB.Size = UDim2.new(0.600000024, 0, 0.600000024, 0)
+Accelerant.RGB.ZIndex = 4
+Accelerant.RGB.Image = "rbxassetid://1433361550"
+Accelerant.RGB.SliceCenter = Rect.new(10, 10, 90, 90)
+
+Accelerant.Marker.Name = "Marker"
+Accelerant.Marker.Parent = Accelerant.RGB
+Accelerant.Marker.AnchorPoint = Vector2.new(0.5, 0.5)
+Accelerant.Marker.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Marker.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Accelerant.Marker.BorderSizePixel = 2
+Accelerant.Marker.Position = UDim2.new(0.5, 0, 1, 0)
+Accelerant.Marker.Size = UDim2.new(0, 4, 0, 4)
+Accelerant.Marker.ZIndex = 5
+
+Accelerant.UICorner_43.CornerRadius = UDim.new(0.0299999993, 0)
+Accelerant.UICorner_43.Parent = Accelerant.RGB
+
+Accelerant.Preview.Name = "Preview"
+Accelerant.Preview.Parent = Accelerant.Selector
+Accelerant.Preview.AnchorPoint = Vector2.new(0.5, 0)
+Accelerant.Preview.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Preview.BorderColor3 = Color3.fromRGB(40, 40, 40)
+Accelerant.Preview.BorderSizePixel = 2
+Accelerant.Preview.Position = UDim2.new(0.5, 0, 0.800000012, 0)
+Accelerant.Preview.Size = UDim2.new(0.600000024, 0, 0.100000001, 0)
+Accelerant.Preview.ZIndex = 4
+Accelerant.Preview.SliceCenter = Rect.new(10, 10, 90, 90)
+
+Accelerant.UICorner_44.CornerRadius = UDim.new(0.0299999993, 0)
+Accelerant.UICorner_44.Parent = Accelerant.Preview
+
+Accelerant.Value.Name = "Value"
+Accelerant.Value.Parent = Accelerant.Selector
+Accelerant.Value.AnchorPoint = Vector2.new(0.5, 0)
+Accelerant.Value.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Accelerant.Value.BorderColor3 = Color3.fromRGB(40, 40, 40)
+Accelerant.Value.BorderSizePixel = 2
+Accelerant.Value.Position = UDim2.new(0.850000024, 0, 0.100000001, 0)
+Accelerant.Value.Size = UDim2.new(0.100000001, 0, 0.600000024, 0)
+Accelerant.Value.ZIndex = 4
+Accelerant.Value.Image = "rbxassetid://359311684"
+Accelerant.Value.SliceCenter = Rect.new(10, 10, 90, 90)
+
+Accelerant.Marker_2.Name = "Marker"
+Accelerant.Marker_2.Parent = Accelerant.Value
+Accelerant.Marker_2.AnchorPoint = Vector2.new(0.5, 0.5)
+Accelerant.Marker_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Marker_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Accelerant.Marker_2.BorderSizePixel = 2
+Accelerant.Marker_2.Position = UDim2.new(0.5, 0, 0, 0)
+Accelerant.Marker_2.Size = UDim2.new(1, 4, 0, 2)
+Accelerant.Marker_2.ZIndex = 5
+
+Accelerant.UICorner_45.CornerRadius = UDim.new(0.0299999993, 0)
+Accelerant.UICorner_45.Parent = Accelerant.Value
+
+Accelerant.UICorner_46.CornerRadius = UDim.new(0.0700000003, 0)
+Accelerant.UICorner_46.Parent = Accelerant.Selector
+
+Accelerant.sSource.Name = "sSource"
+Accelerant.sSource.Parent = Accelerant.AddScript_2
+Accelerant.sSource.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.sSource.Position = UDim2.new(0.0570000112, 0, 0.427910298, 0)
+Accelerant.sSource.Size = UDim2.new(0.769261837, 0, 0.153324425, 0)
+Accelerant.sSource.ClearTextOnFocus = false
+Accelerant.sSource.Font = Enum.Font.Unknown
+Accelerant.sSource.PlaceholderText = "Script source"
+Accelerant.sSource.Text = ""
+Accelerant.sSource.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.sSource.TextScaled = true
+Accelerant.sSource.TextSize = 14.000
+Accelerant.sSource.TextWrapped = true
+Accelerant.sSource.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.UICorner_47.CornerRadius = UDim.new(0.25, 0)
+Accelerant.UICorner_47.Parent = Accelerant.sSource
+
+Accelerant.Settings_2.Name = "Settings"
+Accelerant.Settings_2.Parent = Accelerant.Accelerant
+Accelerant.Settings_2.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Accelerant.Settings_2.Position = UDim2.new(0.267420232, 0, 0.173396304, 0)
+Accelerant.Settings_2.Size = UDim2.new(0.463327289, 0, 0.567398071, 0)
+Accelerant.Settings_2.Visible = false
+Accelerant.Settings_2.ScaleType = Enum.ScaleType.Tile
+Accelerant.Settings_2.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+Accelerant.WB.Name = "WB"
+Accelerant.WB.Parent = Accelerant.Settings_2
+Accelerant.WB.Active = true
+Accelerant.WB.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Accelerant.WB.BorderSizePixel = 0
+Accelerant.WB.Position = UDim2.new(0.039996922, 0, 0.0936395973, 0)
+Accelerant.WB.Size = UDim2.new(0.563809276, 0, 0.274230242, 0)
+Accelerant.WB.CanvasSize = UDim2.new(0, 0, 0, 0)
+Accelerant.WB.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
+
+Accelerant.SL.Name = "SL"
+Accelerant.SL.Parent = Accelerant.WB
+Accelerant.SL.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.SL.BackgroundTransparency = 1.000
+Accelerant.SL.Position = UDim2.new(0.132984579, 0, 0.243923277, 0)
+Accelerant.SL.Size = UDim2.new(0.467032552, 0, 0.223035485, 0)
+Accelerant.SL.Font = Enum.Font.Nunito
+Accelerant.SL.Text = "Show Local"
+Accelerant.SL.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.SL.TextScaled = true
+Accelerant.SL.TextSize = 14.000
+Accelerant.SL.TextTransparency = 0.200
+Accelerant.SL.TextWrapped = true
+Accelerant.SL.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Check_14.Name = "Check"
+Accelerant.Check_14.Parent = Accelerant.SL
+Accelerant.Check_14.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Accelerant.Check_14.Position = UDim2.new(-0.203514352, 0, 0.077683121, 0)
+Accelerant.Check_14.Size = UDim2.new(0.131448701, 0, 0.81502068, 0)
+Accelerant.Check_14.AutoButtonColor = false
+
+Accelerant.UICorner_48.CornerRadius = UDim.new(0.349999994, 0)
+Accelerant.UICorner_48.Parent = Accelerant.Check_14
+
+Accelerant.V_14.Name = "V"
+Accelerant.V_14.Parent = Accelerant.Check_14
+Accelerant.V_14.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.V_14.BackgroundTransparency = 1.000
+Accelerant.V_14.Position = UDim2.new(0.150000006, 0, -0.150000006, 0)
+Accelerant.V_14.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.V_14.Image = "rbxassetid://11599097580"
+Accelerant.V_14.ImageColor3 = Color3.fromRGB(0, 255, 200)
+
+Accelerant.SSCR.Name = "SSCR"
+Accelerant.SSCR.Parent = Accelerant.WB
+Accelerant.SSCR.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.SSCR.BackgroundTransparency = 1.000
+Accelerant.SSCR.Position = UDim2.new(0.132984579, 0, 0.487846553, 0)
+Accelerant.SSCR.Size = UDim2.new(0.467032552, 0, 0.223035485, 0)
+Accelerant.SSCR.Font = Enum.Font.Nunito
+Accelerant.SSCR.Text = "Show Scripts"
+Accelerant.SSCR.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.SSCR.TextScaled = true
+Accelerant.SSCR.TextSize = 14.000
+Accelerant.SSCR.TextTransparency = 0.200
+Accelerant.SSCR.TextWrapped = true
+Accelerant.SSCR.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Check_15.Name = "Check"
+Accelerant.Check_15.Parent = Accelerant.SSCR
+Accelerant.Check_15.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Accelerant.Check_15.Position = UDim2.new(-0.203514352, 0, 0.077683121, 0)
+Accelerant.Check_15.Size = UDim2.new(0.131448701, 0, 0.81502068, 0)
+Accelerant.Check_15.AutoButtonColor = false
+
+Accelerant.UICorner_49.CornerRadius = UDim.new(0.349999994, 0)
+Accelerant.UICorner_49.Parent = Accelerant.Check_15
+
+Accelerant.V_15.Name = "V"
+Accelerant.V_15.Parent = Accelerant.Check_15
+Accelerant.V_15.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.V_15.BackgroundTransparency = 1.000
+Accelerant.V_15.Position = UDim2.new(0.150000006, 0, -0.150000006, 0)
+Accelerant.V_15.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.V_15.Image = "rbxassetid://11599097580"
+Accelerant.V_15.ImageColor3 = Color3.fromRGB(0, 255, 200)
+
+Accelerant.SC.Name = "SC"
+Accelerant.SC.Parent = Accelerant.WB
+Accelerant.SC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.SC.BackgroundTransparency = 1.000
+Accelerant.SC.Position = UDim2.new(0.132984579, 0, 0, 0)
+Accelerant.SC.Size = UDim2.new(0.467032552, 0, 0.223035485, 0)
+Accelerant.SC.Font = Enum.Font.Nunito
+Accelerant.SC.Text = "Show Combat"
+Accelerant.SC.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.SC.TextScaled = true
+Accelerant.SC.TextSize = 14.000
+Accelerant.SC.TextTransparency = 0.200
+Accelerant.SC.TextWrapped = true
+Accelerant.SC.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.Check_16.Name = "Check"
+Accelerant.Check_16.Parent = Accelerant.SC
+Accelerant.Check_16.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Accelerant.Check_16.Position = UDim2.new(-0.203514352, 0, 0.077683121, 0)
+Accelerant.Check_16.Size = UDim2.new(0.131448701, 0, 0.81502068, 0)
+Accelerant.Check_16.AutoButtonColor = false
+
+Accelerant.UICorner_50.CornerRadius = UDim.new(0.349999994, 0)
+Accelerant.UICorner_50.Parent = Accelerant.Check_16
+
+Accelerant.V_16.Name = "V"
+Accelerant.V_16.Parent = Accelerant.Check_16
+Accelerant.V_16.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.V_16.BackgroundTransparency = 1.000
+Accelerant.V_16.Position = UDim2.new(0.150000006, 0, -0.150000006, 0)
+Accelerant.V_16.Size = UDim2.new(1, 0, 1, 0)
+Accelerant.V_16.Image = "rbxassetid://11599097580"
+Accelerant.V_16.ImageColor3 = Color3.fromRGB(0, 255, 200)
+
+Accelerant.HighLight.Name = "HighLight"
+Accelerant.HighLight.Parent = Accelerant.WB
+Accelerant.HighLight.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+Accelerant.HighLight.BorderSizePixel = 0
+Accelerant.HighLight.Position = UDim2.new(0.0446927361, 0, 0.740999997, 0)
+Accelerant.HighLight.Size = UDim2.new(0.643999994, 0, 0.223000005, 0)
+Accelerant.HighLight.AutoButtonColor = false
+Accelerant.HighLight.Font = Enum.Font.SourceSans
+Accelerant.HighLight.Text = "Highlight Color"
+Accelerant.HighLight.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.HighLight.TextScaled = true
+Accelerant.HighLight.TextSize = 14.000
+Accelerant.HighLight.TextWrapped = true
+Accelerant.HighLight.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.TextLabel_7.Parent = Accelerant.Settings_2
+Accelerant.TextLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_7.BackgroundTransparency = 1.000
+Accelerant.TextLabel_7.Position = UDim2.new(0.039996922, 0, 0.023032818, 0)
+Accelerant.TextLabel_7.Size = UDim2.new(0.563809276, 0, 0.060196884, 0)
+Accelerant.TextLabel_7.Font = Enum.Font.Unknown
+Accelerant.TextLabel_7.Text = "Workbar"
+Accelerant.TextLabel_7.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_7.TextScaled = true
+Accelerant.TextLabel_7.TextSize = 14.000
+Accelerant.TextLabel_7.TextWrapped = true
+
+Accelerant.UICorner_51.CornerRadius = UDim.new(0.0199999996, 0)
+Accelerant.UICorner_51.Parent = Accelerant.Settings_2
+
+Accelerant.EP.Name = "EP"
+Accelerant.EP.Parent = Accelerant.Settings_2
+Accelerant.EP.Active = true
+Accelerant.EP.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Accelerant.EP.BorderSizePixel = 0
+Accelerant.EP.Position = UDim2.new(0.039996922, 0, 0.471542239, 0)
+Accelerant.EP.Size = UDim2.new(0.563809276, 0, 0.193967745, 0)
+Accelerant.EP.CanvasSize = UDim2.new(0, 0, 0, 0)
+Accelerant.EP.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
+
+Accelerant.saColor.Name = "saColor"
+Accelerant.saColor.Parent = Accelerant.EP
+Accelerant.saColor.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+Accelerant.saColor.BorderSizePixel = 0
+Accelerant.saColor.Position = UDim2.new(0.0348665901, 0, 0.0399688184, 0)
+Accelerant.saColor.Size = UDim2.new(0.925544083, 0, 0.334849477, 0)
+Accelerant.saColor.AutoButtonColor = false
+Accelerant.saColor.Font = Enum.Font.SourceSans
+Accelerant.saColor.Text = "Shoot-able color"
+Accelerant.saColor.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.saColor.TextScaled = true
+Accelerant.saColor.TextSize = 14.000
+Accelerant.saColor.TextWrapped = true
+Accelerant.saColor.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.nsaColor.Name = "nsaColor"
+Accelerant.nsaColor.Parent = Accelerant.EP
+Accelerant.nsaColor.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+Accelerant.nsaColor.BorderSizePixel = 0
+Accelerant.nsaColor.Position = UDim2.new(0.0348665901, 0, 0.411001265, 0)
+Accelerant.nsaColor.Size = UDim2.new(0.925544083, 0, 0.334849477, 0)
+Accelerant.nsaColor.AutoButtonColor = false
+Accelerant.nsaColor.Font = Enum.Font.SourceSans
+Accelerant.nsaColor.Text = "no Shoot-able color"
+Accelerant.nsaColor.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.nsaColor.TextScaled = true
+Accelerant.nsaColor.TextSize = 14.000
+Accelerant.nsaColor.TextWrapped = true
+Accelerant.nsaColor.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.TextLabel_8.Parent = Accelerant.Settings_2
+Accelerant.TextLabel_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_8.BackgroundTransparency = 1.000
+Accelerant.TextLabel_8.Position = UDim2.new(0.039996922, 0, 0.400935441, 0)
+Accelerant.TextLabel_8.Size = UDim2.new(0.563809276, 0, 0.060196884, 0)
+Accelerant.TextLabel_8.Font = Enum.Font.Unknown
+Accelerant.TextLabel_8.Text = "ESP"
+Accelerant.TextLabel_8.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_8.TextScaled = true
+Accelerant.TextLabel_8.TextSize = 14.000
+Accelerant.TextLabel_8.TextWrapped = true
+
+Accelerant.TextLabel_9.Parent = Accelerant.Settings_2
+Accelerant.TextLabel_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_9.BackgroundTransparency = 1.000
+Accelerant.TextLabel_9.Position = UDim2.new(0.0371170454, 0, 0.691887081, 0)
+Accelerant.TextLabel_9.Size = UDim2.new(0.563809276, 0, 0.060196884, 0)
+Accelerant.TextLabel_9.Font = Enum.Font.Unknown
+Accelerant.TextLabel_9.Text = "Aimbot"
+Accelerant.TextLabel_9.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_9.TextScaled = true
+Accelerant.TextLabel_9.TextSize = 14.000
+Accelerant.TextLabel_9.TextWrapped = true
+
+Accelerant.AB.Name = "AB"
+Accelerant.AB.Parent = Accelerant.Settings_2
+Accelerant.AB.Active = true
+Accelerant.AB.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Accelerant.AB.BorderSizePixel = 0
+Accelerant.AB.Position = UDim2.new(0.0371170454, 0, 0.762493908, 0)
+Accelerant.AB.Size = UDim2.new(0.563809276, 0, 0.193967745, 0)
+Accelerant.AB.CanvasSize = UDim2.new(0, 0, 0, 0)
+Accelerant.AB.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
+
+Accelerant.fColor.Name = "fColor"
+Accelerant.fColor.Parent = Accelerant.AB
+Accelerant.fColor.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+Accelerant.fColor.BorderSizePixel = 0
+Accelerant.fColor.Position = UDim2.new(0.0348665901, 0, 0.0399688184, 0)
+Accelerant.fColor.Size = UDim2.new(0.925544083, 0, 0.334849477, 0)
+Accelerant.fColor.AutoButtonColor = false
+Accelerant.fColor.Font = Enum.Font.SourceSans
+Accelerant.fColor.Text = "FOV Color"
+Accelerant.fColor.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.fColor.TextScaled = true
+Accelerant.fColor.TextSize = 14.000
+Accelerant.fColor.TextWrapped = true
+Accelerant.fColor.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.TextLabel_10.Parent = Accelerant.AB
+Accelerant.TextLabel_10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_10.BackgroundTransparency = 1.000
+Accelerant.TextLabel_10.Position = UDim2.new(0.0388039239, 0, 0.50548631, 0)
+Accelerant.TextLabel_10.Size = UDim2.new(0.143859655, 0, 0.327586174, 0)
+Accelerant.TextLabel_10.Font = Enum.Font.SourceSans
+Accelerant.TextLabel_10.Text = "FOV:"
+Accelerant.TextLabel_10.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_10.TextScaled = true
+Accelerant.TextLabel_10.TextSize = 14.000
+Accelerant.TextLabel_10.TextWrapped = true
+
+Accelerant.FOV.Name = "FOV"
+Accelerant.FOV.Parent = Accelerant.AB
+Accelerant.FOV.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.FOV.Position = UDim2.new(0.271543086, 0, 0.50548631, 0)
+Accelerant.FOV.Size = UDim2.new(0.685246587, 0, 0.327585459, 0)
+Accelerant.FOV.AutoButtonColor = false
+
+Accelerant.UICorner_52.CornerRadius = UDim.new(0.200000003, 0)
+Accelerant.UICorner_52.Parent = Accelerant.FOV
+
+Accelerant.Bar_3.Name = "Bar"
+Accelerant.Bar_3.Parent = Accelerant.FOV
+Accelerant.Bar_3.BackgroundColor3 = Color3.fromRGB(55, 145, 255)
+Accelerant.Bar_3.Size = UDim2.new(0.112499997, 0, 1.00000155, 0)
+
+Accelerant.UICorner_53.CornerRadius = UDim.new(0.200000003, 0)
+Accelerant.UICorner_53.Parent = Accelerant.Bar_3
+
+Accelerant.CurrentValue_3.Name = "CurrentValue"
+Accelerant.CurrentValue_3.Parent = Accelerant.FOV
+Accelerant.CurrentValue_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.CurrentValue_3.BackgroundTransparency = 1.000
+Accelerant.CurrentValue_3.Position = UDim2.new(0.230939776, 0, 0.29565981, 0)
+Accelerant.CurrentValue_3.Size = UDim2.new(0.53280139, 0, 0.581845403, 0)
+Accelerant.CurrentValue_3.Font = Enum.Font.Nunito
+Accelerant.CurrentValue_3.Text = "90"
+Accelerant.CurrentValue_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.CurrentValue_3.TextScaled = true
+Accelerant.CurrentValue_3.TextSize = 14.000
+Accelerant.CurrentValue_3.TextWrapped = true
+
+Accelerant.TextLabel_11.Parent = Accelerant.Settings_2
+Accelerant.TextLabel_11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_11.BackgroundTransparency = 1.000
+Accelerant.TextLabel_11.Position = UDim2.new(0.644001365, 0, 0.023032818, 0)
+Accelerant.TextLabel_11.Size = UDim2.new(0.320481062, 0, 0.060196884, 0)
+Accelerant.TextLabel_11.Visible = false
+Accelerant.TextLabel_11.Font = Enum.Font.Unknown
+Accelerant.TextLabel_11.Text = "Colors"
+Accelerant.TextLabel_11.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.TextLabel_11.TextScaled = true
+Accelerant.TextLabel_11.TextSize = 14.000
+Accelerant.TextLabel_11.TextWrapped = true
+
+Accelerant.Selector_2.Name = "Selector"
+Accelerant.Selector_2.Parent = Accelerant.Settings_2
+Accelerant.Selector_2.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Accelerant.Selector_2.BorderSizePixel = 0
+Accelerant.Selector_2.Position = UDim2.new(0.644001365, 0, 0.471542239, 0)
+Accelerant.Selector_2.Size = UDim2.new(0.32068789, 0, 0.504984975, 0)
+
+Accelerant.RGB_2.Name = "RGB"
+Accelerant.RGB_2.Parent = Accelerant.Selector_2
+Accelerant.RGB_2.AnchorPoint = Vector2.new(0.5, 0)
+Accelerant.RGB_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.RGB_2.BorderColor3 = Color3.fromRGB(40, 40, 40)
+Accelerant.RGB_2.BorderSizePixel = 2
+Accelerant.RGB_2.Position = UDim2.new(0.400000006, 0, 0.100000001, 0)
+Accelerant.RGB_2.Size = UDim2.new(0.600000024, 0, 0.600000024, 0)
+Accelerant.RGB_2.ZIndex = 4
+Accelerant.RGB_2.Image = "rbxassetid://1433361550"
+Accelerant.RGB_2.SliceCenter = Rect.new(10, 10, 90, 90)
+
+Accelerant.Marker_3.Name = "Marker"
+Accelerant.Marker_3.Parent = Accelerant.RGB_2
+Accelerant.Marker_3.AnchorPoint = Vector2.new(0.5, 0.5)
+Accelerant.Marker_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Marker_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Accelerant.Marker_3.BorderSizePixel = 2
+Accelerant.Marker_3.Position = UDim2.new(0.5, 0, 1, 0)
+Accelerant.Marker_3.Size = UDim2.new(0, 4, 0, 4)
+Accelerant.Marker_3.ZIndex = 5
+
+Accelerant.UICorner_54.CornerRadius = UDim.new(0.0299999993, 0)
+Accelerant.UICorner_54.Parent = Accelerant.RGB_2
+
+Accelerant.Preview_2.Name = "Preview"
+Accelerant.Preview_2.Parent = Accelerant.Selector_2
+Accelerant.Preview_2.AnchorPoint = Vector2.new(0.5, 0)
+Accelerant.Preview_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Preview_2.BorderColor3 = Color3.fromRGB(40, 40, 40)
+Accelerant.Preview_2.BorderSizePixel = 2
+Accelerant.Preview_2.Position = UDim2.new(0.5, 0, 0.766887426, 0)
+Accelerant.Preview_2.Size = UDim2.new(0.600000024, 0, 0.100000001, 0)
+Accelerant.Preview_2.ZIndex = 4
+Accelerant.Preview_2.SliceCenter = Rect.new(10, 10, 90, 90)
+
+Accelerant.UICorner_55.CornerRadius = UDim.new(0.100000001, 0)
+Accelerant.UICorner_55.Parent = Accelerant.Preview_2
+
+Accelerant.Value_2.Name = "Value"
+Accelerant.Value_2.Parent = Accelerant.Selector_2
+Accelerant.Value_2.AnchorPoint = Vector2.new(0.5, 0)
+Accelerant.Value_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Accelerant.Value_2.BorderColor3 = Color3.fromRGB(40, 40, 40)
+Accelerant.Value_2.BorderSizePixel = 2
+Accelerant.Value_2.Position = UDim2.new(0.850000024, 0, 0.100000001, 0)
+Accelerant.Value_2.Size = UDim2.new(0.100000001, 0, 0.600000024, 0)
+Accelerant.Value_2.ZIndex = 4
+Accelerant.Value_2.Image = "rbxassetid://359311684"
+Accelerant.Value_2.SliceCenter = Rect.new(10, 10, 90, 90)
+
+Accelerant.Marker_4.Name = "Marker"
+Accelerant.Marker_4.Parent = Accelerant.Value_2
+Accelerant.Marker_4.AnchorPoint = Vector2.new(0.5, 0.5)
+Accelerant.Marker_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.Marker_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Accelerant.Marker_4.BorderSizePixel = 2
+Accelerant.Marker_4.Position = UDim2.new(0.5, 0, 0, 0)
+Accelerant.Marker_4.Size = UDim2.new(1, 4, 0, 2)
+Accelerant.Marker_4.ZIndex = 5
+
+Accelerant.UICorner_56.CornerRadius = UDim.new(0.0299999993, 0)
+Accelerant.UICorner_56.Parent = Accelerant.Value_2
+
+Accelerant.sColor_2.Name = "sColor"
+Accelerant.sColor_2.Parent = Accelerant.Selector_2
+Accelerant.sColor_2.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Accelerant.sColor_2.Position = UDim2.new(0.199999928, 0, 0.89403975, 0)
+Accelerant.sColor_2.Size = UDim2.new(0.600000024, 0, 0.100000001, 0)
+Accelerant.sColor_2.ClearTextOnFocus = false
+Accelerant.sColor_2.Font = Enum.Font.SourceSans
+Accelerant.sColor_2.Text = "255, 255, 255"
+Accelerant.sColor_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.sColor_2.TextScaled = true
+Accelerant.sColor_2.TextSize = 14.000
+Accelerant.sColor_2.TextWrapped = true
+
+Accelerant.UICorner_57.CornerRadius = UDim.new(0.100000001, 0)
+Accelerant.UICorner_57.Parent = Accelerant.sColor_2
+
+Accelerant.CO.Name = "CO"
+Accelerant.CO.Parent = Accelerant.Settings_2
+Accelerant.CO.Active = true
+Accelerant.CO.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Accelerant.CO.BorderSizePixel = 0
+Accelerant.CO.Position = UDim2.new(0.644001365, 0, 0.098390907, 0)
+Accelerant.CO.Size = UDim2.new(0.32068789, 0, 0.269478917, 0)
+Accelerant.CO.Visible = false
+Accelerant.CO.CanvasSize = UDim2.new(0, 0, 0, 0)
+Accelerant.CO.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
+
+Accelerant.bgColor.Name = "bgColor"
+Accelerant.bgColor.Parent = Accelerant.CO
+Accelerant.bgColor.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+Accelerant.bgColor.BorderSizePixel = 0
+Accelerant.bgColor.Position = UDim2.new(0.0356837139, 0, -0.0288267881, 0)
+Accelerant.bgColor.Size = UDim2.new(0.925999939, 0, 0.225192666, 0)
+Accelerant.bgColor.AutoButtonColor = false
+Accelerant.bgColor.Font = Enum.Font.SourceSans
+Accelerant.bgColor.Text = "Background Color"
+Accelerant.bgColor.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.bgColor.TextScaled = true
+Accelerant.bgColor.TextSize = 14.000
+Accelerant.bgColor.TextWrapped = true
+Accelerant.bgColor.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.scColor.Name = "scColor"
+Accelerant.scColor.Parent = Accelerant.CO
+Accelerant.scColor.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+Accelerant.scColor.BorderSizePixel = 0
+Accelerant.scColor.Position = UDim2.new(0.0356837139, 0, 0.219376028, 0)
+Accelerant.scColor.Size = UDim2.new(0.925999939, 0, 0.225192666, 0)
+Accelerant.scColor.AutoButtonColor = false
+Accelerant.scColor.Font = Enum.Font.SourceSans
+Accelerant.scColor.Text = "Secondary Color"
+Accelerant.scColor.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.scColor.TextScaled = true
+Accelerant.scColor.TextSize = 14.000
+Accelerant.scColor.TextWrapped = true
+Accelerant.scColor.TextXAlignment = Enum.TextXAlignment.Left
+
+Accelerant.CurrentlyChangingColor.Name = "CurrentlyChangingColor"
+Accelerant.CurrentlyChangingColor.Parent = Accelerant.Settings_2
+Accelerant.CurrentlyChangingColor.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.CurrentlyChangingColor.BackgroundTransparency = 1.000
+Accelerant.CurrentlyChangingColor.Position = UDim2.new(0.644001365, 0, 0.400935441, 0)
+Accelerant.CurrentlyChangingColor.Size = UDim2.new(0.320481062, 0, 0.060196884, 0)
+Accelerant.CurrentlyChangingColor.Font = Enum.Font.Unknown
+Accelerant.CurrentlyChangingColor.Text = "nil"
+Accelerant.CurrentlyChangingColor.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accelerant.CurrentlyChangingColor.TextScaled = true
+Accelerant.CurrentlyChangingColor.TextSize = 14.000
+Accelerant.CurrentlyChangingColor.TextWrapped = true
+
+return Accelerant
