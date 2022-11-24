@@ -4,7 +4,6 @@
 -- Instances:
 
 local Accelerant = {
-	Accelerant = game:GetService("CoreGui").Accelerant
 	WorkBar = Instance.new("Frame"),
 	UICorner = Instance.new("UICorner"),
 	Description = Instance.new("TextLabel"),
@@ -224,6 +223,7 @@ local Accelerant = {
 	bgColor = Instance.new("TextButton"),
 	scColor = Instance.new("TextButton"),
 	CurrentlyChangingColor = Instance.new("TextLabel"),
+	Accelerant = game:GetService("CoreGui").Accelerant
 }
 
 --Properties:
