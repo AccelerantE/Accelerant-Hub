@@ -4,7 +4,7 @@
 -- Instances:
 
 local Accelerant = {
-	Accelerant = game.CoreGui.Accelerant
+	Accelerant = game:GetService("CoreGui").Accelerant
 	WorkBar = Instance.new("Frame"),
 	UICorner = Instance.new("UICorner"),
 	Description = Instance.new("TextLabel"),
