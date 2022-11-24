@@ -1,1 +1,1381 @@
+--||Services||--
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+local MarketPlace = game:GetService("MarketplaceService")
+local UserSerice = game:GetService("UserService")
+local GroupService = game:GetService("GroupService")
+local FriendService = game:GetService("FriendService")
+local TeleportService = game:GetService("TeleportService")
+local UserInputService = game:GetService("UserInputService")
+--||Player||--
+local Player = Players.LocalPlayer
+local Mouse = Player:GetMouse()
+--||Holders||--
+local Screen = game.CoreGui.Accelerant
+--||Folders||--
+local hFolder = Screen.Home
+local cFolder = Screen.Combat
+--||UIs||--
+local WorkBar = Screen.WorkBar
+local wTop = WorkBar.Top
+local wBottom = WorkBar.Bottom
+local GameInfo = hFolder.GameInfo
+local Friends = hFolder.Friends
+local ServerI = hFolder.ServerInfo
+local fS = Friends.ScrollingFrame
+local LocalMods = Screen.LocalMods
+local sS = Screen.Scripts.ScrollingFrame
+local aimS = cFolder.Aimbot.ScrollingFrame
+local espS = cFolder.ESP.ScrollingFrame
+local AddScript = Screen.AddScript
+local Selector = AddScript.Selector
+local Settings = Screen.Settings
+--||Tables||--
+local UIs = {"TextButton", "ImageButton", "ImageLabel", "Frame", "TextLabel", "TextBox", "ScrollingFrame"}
+local Banners = {
+	["synapse"] = {
+		["string"] = "synapse",
+		["Banner"] = "rbxassetid://11558441753",
+		["Text"] = "Synapse X",
+		["SF"] = true
+	},
+	["scriptware"] = {
+		["string"] = "scriptware",
+		["Banner"] = "rbxassetid://11558436424",
+		["Text"] = "Script-Ware",
+		["SF"] = true
+	},
+	["krnl"] = {
+		["string"] = "krnl",
+		["Banner"] = "rbxassetid://11558442166",
+		["Text"] = "Krnl",
+		["SF"] = false
+	},
+	["fluxus"] = {
+		["string"] = "fluxus",
+		["Banner"] = "rbxassetid://11565055380",
+		["Text"] = "Fluxus",
+		["SF"] = false
+	}
+}
+local Scripts = {
+	["infYield"] = "loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()",
+	["DEX"] = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua', true))()",
+	["cmdx"] = "loadstring(game:HttpGet('https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source', true))()",
+	["OwlHub"] = "loadstring(game:HttpGet('https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt'))()"
+}
+local CurrentlyAnimating = {
+	Home = false,
+	Local = false,
+	Scripts = false,
+	WorkBar = false,
+	Combat = false,
+	Settings = false
+}
+--||Wolrd-Items||--
+local Camera = workspace.CurrentCamera
+--||Defaults||--
+local HomeOpenned = false
+local CombatOpenned = false
+local Jump = 300
+local Speed = 1000
+local aS = false
+local aj = false
+local OffTiming = 0
+local Checker = 2
+local FOV = 90
+local befS
+local befJ
+local CharJump
+--||Colors||--
+local nonSA = Color3.fromRGB(255, 0, 0)
+local enSA = Color3.fromRGB(0, 255, 0)
+local fColor = Color3.fromRGB(255, 255, 255)
+local hgColor = Color3.fromRGB(20, 100, 220)
+--||Shorts||--
+local t = tostring
+--||Functions||--
 
+local function TweenFromLeft(Frame: Frame?, Time: number, Position: UDim2)
+	local p = Frame.Position
+	Frame.Position = Position - UDim2.new(1, 0, 0, 0)
+	Frame.Visible = true
+	TweenService:Create(
+		Frame,
+		TweenInfo.new(Time, Enum.EasingStyle.Quad),
+		{Position = Position}
+	):Play()
+end
+
+local function TweenFromRight(Frame: Frame?, Time: number, Position: UDim2)
+	local p = Frame.Position
+	Frame.Position = Position + UDim2.new(1, 0, 0, 0)
+	Frame.Visible = true
+	TweenService:Create(
+		Frame,
+		TweenInfo.new(Time, Enum.EasingStyle.Quad),
+		{Position = Position}
+	):Play()
+end
+
+local function TweenToPosition(Frame: Frame?, Time: number, Position: UDim2)
+	local p = Frame.Position
+	TweenService:Create(
+		Frame,
+		TweenInfo.new(Time, Enum.EasingStyle.Quad, Enum.EasingDirection.In),
+		{Position = Position}
+	):Play()
+	task.delay(Time, function()
+		Frame.Position = p
+		Frame.Visible = false
+	end)
+end
+
+local function TweenFromBottom(Frame: Frame?, Time: number, Position: UDim2)
+	local p = Frame.Position
+	Frame.Position = Position - UDim2.new(0, 0, -1, 0)
+	Frame.Visible = true
+	TweenService:Create(
+		Frame,
+		TweenInfo.new(Time, Enum.EasingStyle.Quad),
+		{Position = Position}
+	):Play()
+end
+
+local function GetServerInfo()
+	ServerI.PiS.Text = "Players in server: "..t(#Players:GetChildren()).."/"..t(Players.MaxPlayers)
+	local FriendsCount = 0
+	for i, v in Players:GetPlayers() do
+		if Player:IsFriendsWith(v.UserId) then
+			FriendsCount += 1
+		end
+	end
+	ServerI.FiS.Text = "Friends in server: "..t(FriendsCount)
+end
+
+local function ImageAnim(Frame)
+	for i, v in Frame:GetChildren() do
+		if v:IsA("ImageLabel") or v:IsA("ImageButton") then
+			v.MouseEnter:Connect(function()
+				TweenService:Create(
+					v,
+					TweenInfo.new(0.5, Enum.EasingStyle.Quad),
+					{TileSize = UDim2.new(1,0, 1,0)}
+				):Play()
+			end)
+			v.MouseLeave:Connect(function()
+				TweenService:Create(
+					v,
+					TweenInfo.new(0.5, Enum.EasingStyle.Quad),
+					{TileSize = UDim2.new(1.1,0, 1.1,0)}
+				):Play()
+			end)
+		end
+	end
+end
+
+local function TweenTransparency(Frame, t)
+	TweenService:Create(
+		Frame,
+		TweenInfo.new(.5),
+		{Transparency = t}
+	):Play()
+end
+
+local function TweenImgTransparency(Frame, t)
+	TweenService:Create(
+		Frame,
+		TweenInfo.new(.5),
+		{ImageTransparency = t}
+	):Play()
+end
+
+--||Startup||--
+
+Player.Character:WaitForChild("Humanoid")
+fS.AutomaticCanvasSize = Enum.AutomaticSize.Y
+sS.AutomaticCanvasSize = Enum.AutomaticSize.Y
+
+task.spawn(function()
+	local ExecutorName = identifyexecutor()
+
+	for i, v in pairs(Banners) do
+		if string.find(string.lower(ExecutorName), v["string"]) then
+			hFolder.Executor.Image = v["Banner"]
+			hFolder.Executor.exeName.Text = v["Text"]
+			hFolder.Executor.SF.Text = "Special Functions: "..t(v["SF"])
+		end
+	end
+end)
+
+local Info = MarketPlace:GetProductInfo(game.PlaceId)
+GameInfo.GameName.Text = Info.Name
+GameInfo.GameIcon.Image = "rbxthumb://type=Asset&id="..Info.IconImageAssetId.."&w=150&h=150"
+if game.CreatorType == Enum.CreatorType.User then
+	local Succes, ret = pcall(function()
+		return UserSerice:GetUserInfosByUserIdsAsync({game.CreatorId})
+	end)
+
+	if Succes then
+		for i, User in pairs(ret) do
+			GameInfo.GameIcon.GameOwner.Text = "By: "..User.Username
+		end
+	end
+elseif game.CreatorType == Enum.CreatorType.Group then
+	local Group = GroupService:GetGroupInfoAsync(game.CreatorId)
+	GameInfo.GameIcon.GameOwner.Text = Group.Name
+end
+coroutine.wrap(function()
+	while true do
+		for i, v in fS:GetChildren() do
+			if table.find(UIs, v.ClassName) then
+				v:Destroy()
+			end
+		end
+		
+		local OnFriends = Player:GetFriendsOnline()
+		for i, v in pairs(OnFriends) do
+			if v["PlaceId"] then
+				-- Instances:
+
+				local Game = Instance.new("ImageLabel")
+				local UICorner = Instance.new("UICorner")
+				local Join = Instance.new("ImageButton")
+				local UICorner_2 = Instance.new("UICorner")
+				local Shadow = Instance.new("ImageLabel")
+
+				--Properties:
+
+				Game.Name = "Game"
+				Game.Parent = fS
+				Game.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+				Game.Position = UDim2.new(0.0643170699, 0, 0.0494396426, 0)
+				Game.Size = UDim2.new(0.859002471, 0, 0.400216877, 0)
+				Game.Image = "https://www.roblox.com/asset-thumbnail/image?assetId="..v["PlaceId"].."&width=768&height=432&format=png"
+				Game.ScaleType = Enum.ScaleType.Tile
+				Game.SliceCenter = Rect.new(0, 0, 100, 0)
+				Game.SliceScale = 0.000
+				Game.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+				UICorner.CornerRadius = UDim.new(0.100000001, 0)
+				UICorner.Parent = Game
+
+				Join.Name = "Join"
+				Join.Parent = Game
+				Join.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+				Join.Position = UDim2.new(0.333450794, 0, 0.641914487, 0)
+				Join.Size = UDim2.new(0.320374399, 0, 0.541490912, 0)
+				Join.Image = Players:GetUserThumbnailAsync(v.VisitorId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+
+				UICorner_2.CornerRadius = UDim.new(0.200000003, 0)
+				UICorner_2.Parent = Join
+
+				Shadow.Name = "Shadow"
+				Shadow.Parent = Game
+				Shadow.BackgroundTransparency = 1.000
+				Shadow.Position = UDim2.new(0.276989102, 0, 0.554230154, 0)
+				Shadow.Size = UDim2.new(0.423592001, 0, 0.677971244, 0)
+				Shadow.ZIndex = 0
+				Shadow.Image = "rbxassetid://313486536"
+				
+				Join.MouseButton1Click:Connect(function()
+					TeleportService:TeleportToPlaceInstance(v["PlaceId"], v["GameId"], Player)
+				end)
+			end
+		end
+		task.wait(10)
+	end
+end)()
+
+GetServerInfo()
+Players.PlayerAdded:Connect(function() GetServerInfo() end)
+Players.PlayerRemoving:Connect(function() GetServerInfo() end)
+RunService.RenderStepped:Connect(function()
+	local p = t(Player:GetNetworkPing())
+	p = string.split(p, "")
+	if p[2] then
+		ServerI.Ping.Text = "Ping: "..p[1]..p[2]..p[3]
+	end
+	if p[4] then
+		ServerI.Ping.Text = "Ping: "..p[1]..p[2]..p[3]..p[4]
+	end
+	if p[5] then
+		ServerI.Ping.Text = "Ping: "..p[1]..p[2]..p[3]..p[4]..p[5]
+	end
+end)
+
+--||Animations||--
+
+coroutine.wrap(function()
+	while task.wait(1) do
+		if OffTiming >= 3 then
+			for i, v in wTop:GetChildren() do
+				if v:IsA("ImageButton") then
+					TweenImgTransparency(v, .5)
+				end
+			end
+
+			for i, v in wBottom:GetChildren() do
+				if v:IsA("ImageButton") then
+					TweenImgTransparency(v, .5)
+				end
+			end
+			
+			TweenTransparency(WorkBar, .5)
+		end
+		OffTiming += 1
+	end
+end)()
+
+UserInputService.InputBegan:Connect(function(i)
+	if i.KeyCode == Enum.KeyCode.K then
+		if CurrentlyAnimating.WorkBar == true then return end
+		if WorkBar.Visible == true then
+			CurrentlyAnimating.WorkBar = true
+			TweenToPosition(WorkBar, 0.2, UDim2.new(1.952, 0,0.289, 0))
+			task.delay(.1, function()
+				CurrentlyAnimating.WorkBar = false
+			end)
+		else
+			CurrentlyAnimating.WorkBar = true
+			TweenFromRight(WorkBar, 0.2, UDim2.new(0.952, 0,0.289, 0))
+			task.delay(.1, function()
+				CurrentlyAnimating.WorkBar = false
+			end)
+		end
+	end
+end)
+
+for i, v in wTop:GetChildren() do
+	if v:IsA("ImageButton") then
+		v.MouseEnter:Connect(function()
+			if v.ImageColor3 == hgColor then return end
+			v.Size = UDim2.new(0.583, 0, 0.177, 0)
+		end)
+		v.MouseLeave:Connect(function()
+			if v.Name == "Home" and HomeOpenned == true then return end
+			if v.ImageColor3 == hgColor then return end
+			v.Size = UDim2.new(0.483, 0,0.142, 0)
+		end)
+	end
+end
+
+for i, v in wBottom:GetChildren() do
+	if v:IsA("ImageButton") then
+		v.MouseEnter:Connect(function()
+			if v.ImageColor3 == hgColor then return end
+			v.Size = UDim2.new(0.525, 0, 0.233, 0)
+		end)
+		v.MouseLeave:Connect(function()
+			if v.ImageColor3 == hgColor then return end
+			v.Size = UDim2.new(0.426, 0,0.193, 0)
+		end)
+	end
+end
+
+WorkBar.MouseEnter:Connect(function()
+	OffTiming = 0
+	TweenTransparency(WorkBar, 0)
+	for i, v in wTop:GetChildren() do
+		if v:IsA("ImageButton") then
+			TweenImgTransparency(v, 0)
+		end
+	end
+
+	for i, v in wBottom:GetChildren() do
+		if v:IsA("ImageButton") then
+			TweenImgTransparency(v, 0)
+		end
+	end
+end)
+WorkBar.MouseMoved:Connect(function()
+	OffTiming = 0
+	TweenTransparency(WorkBar, 0)
+	for i, v in wTop:GetChildren() do
+		if v:IsA("ImageButton") then
+			TweenImgTransparency(v, 0)
+		end
+	end
+
+	for i, v in wBottom:GetChildren() do
+		if v:IsA("ImageButton") then
+			TweenImgTransparency(v, 0)
+		end
+	end
+end)
+
+ImageAnim(sS)
+ImageAnim(Screen)
+
+for x, y in pairs(Screen:GetChildren()) do
+	if y:IsA("Folder") then
+		for i, v in pairs(y:GetChildren()) do
+			if v:IsA("ImageLabel") then
+				v.MouseEnter:Connect(function()
+					TweenService:Create(
+						v,
+						TweenInfo.new(0.5, Enum.EasingStyle.Quad),
+						{TileSize = UDim2.new(1,0, 1,0)}
+					):Play()
+				end)
+				v.MouseLeave:Connect(function()
+					TweenService:Create(
+						v,
+						TweenInfo.new(0.5, Enum.EasingStyle.Quad),
+						{TileSize = UDim2.new(1.1,0, 1.1,0)}
+					):Play()
+				end)
+			end
+		end
+	end
+end
+
+--||Source||--
+
+for i, v in pairs(LocalMods:GetChildren()) do
+	if v:FindFirstChild("Bar") then
+		local Fire = false
+		local Bar = v.Bar
+		local player = game.Players.LocalPlayer
+		local Mouse = player:GetMouse()
+		local UserInputService = game:GetService("UserInputService")
+		local ap = Vector2.new(v.AbsolutePosition.X, v.AbsolutePosition.Y)
+		local as = Vector2.new(v.AbsoluteSize.X, v.AbsoluteSize.Y)
+		local x = Mouse.X
+		local down = false
+
+		v.MouseButton1Down:Connect(function()
+			Bar.Size = UDim2.new(0, (Mouse.X - ap.X), 1, 0)
+			Fire = true
+			down = true
+		end)
+
+		UserInputService.InputEnded:Connect(function(input, gp)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				down = false
+				Fire = false
+			end
+		end)
+
+		Mouse.Move:Connect(function()
+			if down == true then
+				Fire = false
+				Fire = true
+
+				if Mouse.X < ap.X then
+					Bar.Size = UDim2.new(0, 0, 1, 0)
+				elseif Mouse.X > (ap.X + as.X) then
+					Bar.Size = UDim2.new(0, as.X, 1, 0)
+				else
+					Bar.Size = UDim2.new(0, (Mouse.X - ap.X), 1, 0)
+				end
+				if v.Name == "Speed" then
+					Speed = 1000 * (Bar.Size.X.Offset / as.X)
+					if aS == true then
+						Player.Character.Humanoid.WalkSpeed = Speed
+					end
+					v.CurrentValue.Text = t(math.floor(Speed))
+				elseif v.Name == "Jump" then
+					Jump = 300 * (Bar.Size.X.Offset / as.X)
+					if aj == true then
+						if Player.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+							Player.Character.Humanoid.JumpPower = Jump
+						elseif Player.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+							Player.Character.Humanoid.JumpHeight = Jump
+						end
+					end
+					v.CurrentValue.Text = t(math.floor(Jump))
+				end
+			end
+		end)
+	end
+end
+
+LocalMods.SetSpeed.MouseButton1Click:Connect(function()
+	if aS == false then
+		aS = true
+		LocalMods.SetSpeed.TextLabel.TextColor3 = Color3.fromRGB(30, 30, 30)
+		LocalMods.SetSpeed.BackgroundColor3 = Color3.fromRGB(120, 50, 255)
+		befS = Player.Character.Humanoid.WalkSpeed
+		Player.Character.Humanoid.WalkSpeed = Speed
+	else
+		
+		aS = false
+		LocalMods.SetSpeed.TextLabel.TextColor3 = Color3.fromRGB(120, 50, 255)
+		LocalMods.SetSpeed.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+		Player.Character.Humanoid.WalkSpeed = befS
+	end
+end)
+
+LocalMods.SetJump.MouseButton1Click:Connect(function()
+	if aj == false then
+		aj = true
+		LocalMods.SetJump.TextLabel.TextColor3 = Color3.fromRGB(30, 30, 30)
+		LocalMods.SetJump.BackgroundColor3 = Color3.fromRGB(255, 100, 50)
+		if Player.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+			befJ = Player.Character.Humanoid.JumpPower
+			Player.Character.Humanoid.JumpPower = Jump
+		elseif Player.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+			befJ = Player.Character.Humanoid.JumpHeight
+			Player.Character.Humanoid.JumpHeight = Jump
+		end
+	else
+		LocalMods.SetJump.TextLabel.TextColor3 = Color3.fromRGB(255, 100, 50)
+		LocalMods.SetJump.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+		aj = false
+		if Player.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+			Player.Character.Humanoid.JumpPower = befJ
+		elseif Player.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+			Player.Character.Humanoid.JumpHeight = befJ
+		end
+	end
+end)
+
+for i, v in sS:GetChildren() do
+	local thisChecker = Checker - 1
+	if v:IsA("ImageButton") then
+		v.MouseButton1Click:Connect(function()
+			if thisChecker ~= Checker - 1 then return end
+			loadstring(Scripts[v.Name])()
+		end)
+	end
+end
+
+sS.ChildAdded:Connect(function()
+	for i, v in sS:GetChildren() do
+		local thisChecker = Checker - 1
+		if v:IsA("ImageButton") then
+			v.MouseButton1Click:Connect(function()
+				if thisChecker ~= Checker - 1 then return end
+				loadstring(Scripts[v.Name])()
+			end)
+		end
+	end
+end)
+
+Screen.Scripts.AddScript.MouseButton1Click:Connect(function()
+	AddScript.Visible = not AddScript.Visible
+end)
+
+AddScript.Close.MouseButton1Click:Connect(function()
+	AddScript.Visible = false
+end)
+
+AddScript.Open.MouseButton1Click:Connect(function()
+	local _, Content = readdialog("Select a script", "All Files\0*.*\0\0")
+	if _ == true then
+		AddScript.sSource.Text = Content
+	end
+end)
+
+AddScript.ColorPicker.MouseButton1Click:Connect(function()
+	AddScript.Selector.Visible = not AddScript.Selector.Visible
+end)
+
+coroutine.wrap(function()
+	local rgb = Selector.RGB
+	local value = Selector.Value
+	local preview = Selector.Preview
+
+	local selectedColor = Color3.fromHSV(1,1,1)
+	local colorData = {1,1,1}
+
+	local mouse1down = false
+
+	local function setColor(hue,sat,val)
+		colorData = {hue or colorData[1],sat or colorData[2],val or colorData[3]}
+		selectedColor = Color3.fromHSV(colorData[1],colorData[2],colorData[3])
+		local r,g,b = math.floor((selectedColor.R*255)+0.5),math.floor((selectedColor.G*255)+0.5),math.floor((selectedColor.B*255)+0.5)
+		AddScript.sColor.Text = r..", "..g..", "..b
+		preview.BackgroundColor3 = selectedColor
+		value.ImageColor3 = Color3.fromHSV(colorData[1],colorData[2],1)
+	end
+
+	local function inBounds(frame)
+		local x,y = Mouse.X - frame.AbsolutePosition.X,Mouse.Y - frame.AbsolutePosition.Y
+		local maxX,maxY = frame.AbsoluteSize.X,frame.AbsoluteSize.Y
+		if x >= 0 and y >= 0 and x <= maxX and y <= maxY then
+			return x/maxX,y/maxY
+		end
+	end
+
+	local function updateRGB()
+		if mouse1Down == true then
+			local x,y = inBounds(rgb)
+			if x and y then
+				rgb:WaitForChild("Marker").Position = UDim2.new(x,0,y,0)
+				setColor(1 - x,1 - y)
+			end
+
+			local x,y = inBounds(value)
+			if x and y then
+				value:WaitForChild("Marker").Position = UDim2.new(0.5,0,y,0)
+				setColor(nil,nil,1 - y)
+			end
+		end
+	end
+
+	Mouse.Move:connect(updateRGB)
+
+	Mouse.Button1Down:connect(function()mouse1Down = true end)
+	Mouse.Button1Up:connect(function()mouse1Down = false end)
+end)()
+
+AddScript.Confirm.MouseButton1Click:Connect(function()
+	local RGB = string.gsub(AddScript.sColor.Text, " ", "")
+	RGB = string.split(RGB, ",")
+	local R = tonumber(RGB[1])
+	local G = tonumber(RGB[2])
+	local B = tonumber(RGB[3])
+	RGB = Color3.fromRGB(R, G, B)
+	Scripts[AddScript.sName.Text] = AddScript.sSource.Text
+	Checker += 1
+	
+	-- Instances:
+
+	local NewScript = Instance.new("ImageButton")
+	local UICorner = Instance.new("UICorner")
+	local UIGradient = Instance.new("UIGradient")
+	local TextLabel = Instance.new("TextLabel")
+	local Close = Instance.new("ImageButton")
+	local UICorner_2 = Instance.new("UICorner")
+
+	--Properties:
+
+	NewScript.Name = AddScript.sName.Text
+	NewScript.Parent = sS
+	NewScript.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	NewScript.Position = UDim2.new(0.0250000004, 0, 0.537313461, 0)
+	NewScript.Size = UDim2.new(0.949999928, 0, 0.332704782, 0)
+	NewScript.AutoButtonColor = false
+	NewScript.ScaleType = Enum.ScaleType.Fit
+	NewScript.TileSize = UDim2.new(1.10000002, 0, 1.10000002, 0)
+
+	UICorner.CornerRadius = UDim.new(0.200000003, 0)
+	UICorner.Parent = NewScript
+
+	UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, RGB), ColorSequenceKeypoint.new(0.73, Color3.fromRGB(35, 31, 31)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 30, 30))}
+	UIGradient.Parent = NewScript
+
+	TextLabel.Parent = NewScript
+	TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel.BackgroundTransparency = 1.000
+	TextLabel.Position = UDim2.new(0.0190476216, 0, 0.166666687, 0)
+	TextLabel.Size = UDim2.new(0.95873028, 0, 0.633333325, 0)
+	TextLabel.Font = Enum.Font.SourceSans
+	TextLabel.Text = AddScript.sName.Text
+	TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel.TextScaled = true
+	TextLabel.TextSize = 14.000
+	TextLabel.TextWrapped = true
+	TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+	Close.Name = "Close"
+	Close.Parent = NewScript
+	Close.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+	Close.Position = UDim2.new(0.918143749, 0, 0.110515505, 0)
+	Close.Size = UDim2.new(0.0608705506, 0, 0.744846761, 0)
+	Close.AutoButtonColor = false
+	Close.Image = "rbxassetid://11597302926"
+	Close.ImageTransparency = 0.100
+
+	UICorner_2.CornerRadius = UDim.new(0.300000012, 0)
+	UICorner_2.Parent = Close
+	
+	Close.MouseButton1Click:Connect(function()
+		NewScript:Destroy()
+	end)
+end)
+
+for i, v in pairs(Settings.WB:GetChildren()) do
+	if v:IsA("TextLabel") and v:FindFirstChild("Check") then
+		v.Check.MouseButton1Click:Connect(function()
+			if v.Check.V.Visible == true then
+				v.Check.V.Visible = false
+				local WBB = string.gsub(v.Text, "Show ", "")
+				wTop[WBB].Visible = false
+			else
+				v.Check.V.Visible = true
+				local WBB = string.gsub(v.Text, "Show ", "")
+				wTop[WBB].Visible = true
+			end
+		end)
+	end
+end
+
+coroutine.wrap(function()
+	local v = Settings.AB.FOV
+	local Fire = false
+	local Bar = v.Bar
+	local player = game.Players.LocalPlayer
+	local Mouse = player:GetMouse()
+	local UserInputService = game:GetService("UserInputService")
+	local ap = Vector2.new(v.AbsolutePosition.X, v.AbsolutePosition.Y)
+	local as = Vector2.new(v.AbsoluteSize.X, v.AbsoluteSize.Y)
+	local x = Mouse.X
+	local down = false
+
+	v.MouseButton1Down:Connect(function()
+		Bar.Size = UDim2.new(0, (Mouse.X - ap.X), 1, 0)
+		Fire = true
+		down = true
+	end)
+
+	UserInputService.InputEnded:Connect(function(input, gp)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 then
+			down = false
+			Fire = false
+		end
+	end)
+
+	Mouse.Move:Connect(function()
+		if down == true then
+			Fire = false
+			Fire = true
+
+			if Mouse.X < ap.X then
+				Bar.Size = UDim2.new(0, 0, 1, 0)
+			elseif Mouse.X > (ap.X + as.X) then
+				Bar.Size = UDim2.new(0, as.X, 1, 0)
+			else
+				Bar.Size = UDim2.new(0, (Mouse.X - ap.X), 1, 0)
+			end
+			FOV = 800 * (Bar.Size.X.Offset / as.X)
+			v.CurrentValue.Text = t(math.floor(Speed))
+		end
+	end)
+end)()
+
+for i, v in pairs(Settings:GetChildren()) do
+	if v:IsA("ScrollingFrame") then
+		for x, y in pairs(v:GetChildren()) do
+			if y ~= nil and y:IsA("TextButton") then
+				y.MouseButton1Click:Connect(function()
+					Settings.CurrentlyChangingColor.Text = y.Text
+				end)
+			end
+		end
+	end
+end
+
+coroutine.wrap(function()
+	local rgb = Settings.Selector.RGB
+	local value = Settings.Selector.Value
+	local preview = Settings.Selector.Preview
+
+	local selectedColor = Color3.fromHSV(1,1,1)
+	local colorData = {1,1,1}
+
+	local mouse1down = false
+
+	local function setColor(hue,sat,val)
+		colorData = {hue or colorData[1],sat or colorData[2],val or colorData[3]}
+		selectedColor = Color3.fromHSV(colorData[1],colorData[2],colorData[3])
+		local r,g,b = math.floor((selectedColor.R*255)+0.5),math.floor((selectedColor.G*255)+0.5),math.floor((selectedColor.B*255)+0.5)
+		Settings.Selector.sColor.Text = r..", "..g..", "..b
+		preview.BackgroundColor3 = selectedColor
+		value.ImageColor3 = Color3.fromHSV(colorData[1],colorData[2],1)
+		local RGB = string.gsub(Settings.Selector.sColor.Text, " ", "")
+		RGB = string.split(RGB, ",")
+		local R = tonumber(RGB[1])
+		local G = tonumber(RGB[2])
+		local B = tonumber(RGB[3])
+		RGB = Color3.fromRGB(R, G, B)
+		if Settings.CurrentlyChangingColor.Text == "Shoot-able color" then
+			enSA = RGB
+		elseif Settings.CurrentlyChangingColor.Text == "no Shoot-able color" then
+			nonSA = RGB
+		elseif Settings.CurrentlyChangingColor.Text == "FOV Color" then
+			fColor = RGB
+		elseif Settings.CurrentlyChangingColor.Text == "Highlight Color" then
+			hgColor = RGB
+			wBottom.Settings.ImageColor3 = hgColor
+		end
+	end
+
+	local function inBounds(frame)
+		local x,y = Mouse.X - frame.AbsolutePosition.X,Mouse.Y - frame.AbsolutePosition.Y
+		local maxX,maxY = frame.AbsoluteSize.X,frame.AbsoluteSize.Y
+		if x >= 0 and y >= 0 and x <= maxX and y <= maxY then
+			return x/maxX,y/maxY
+		end
+	end
+
+	local function updateRGB()
+		if mouse1Down == true then
+			local x,y = inBounds(rgb)
+			if x and y then
+				rgb:WaitForChild("Marker").Position = UDim2.new(x,0,y,0)
+				setColor(1 - x,1 - y)
+			end
+
+			local x,y = inBounds(value)
+			if x and y then
+				value:WaitForChild("Marker").Position = UDim2.new(0.5,0,y,0)
+				setColor(nil,nil,1 - y)
+			end
+		end
+	end
+
+	Mouse.Move:connect(updateRGB)
+
+	Mouse.Button1Down:connect(function()mouse1Down = true end)
+	Mouse.Button1Up:connect(function()mouse1Down = false end)
+end)()
+
+--||Connections-Functions||--
+
+--ESP--
+
+local function BoxESP(v: Player)
+	if v ~= Player and v.Character ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health > 0 then
+		local HeadOffset = Vector3.new(0, 0.5, 0)
+		local LegOffset = Vector3.new(0, 3, 0)
+
+		local Box = Drawing.new("Square")
+		Box.Thickness = 1
+		Box.Transparency = 1
+		Box.Color = Color3.fromRGB(255, 255, 255)
+		Box.Filled = false
+		Box.Visible = false
+
+		local function con()
+			RunService.RenderStepped:Connect(function()
+				if espS.ESP.Check.V.Visible == true then
+					Box.Visible = true
+					if espS.Box.Check.V.Visible == true and v.Character ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health > 0 then
+						local Vector, onScreen = Camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
+
+						local RootPosition, RootVisible = Camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
+						local HeadPosition = Camera:worldToViewportPoint(v.Character.Head.Position + HeadOffset)
+						local LegPosition = Camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position - LegOffset)
+
+						if espS.Teamates.Check.V.Visible == true or Player.Team ~= v.Team then
+							if onScreen then
+								Box.Size = Vector2.new(1000/RootPosition.Z, HeadPosition.Y - LegPosition.Y)
+								Box.Position = Vector2.new(RootPosition.X - Box.Size.X/2, RootPosition.Y - Box.Size.Y/2)
+								local Check = Camera:GetPartsObscuringTarget({v.Character.Head}, Player.Character:GetChildren())
+								if espS.wCheck.Check.V.Visible == true then
+									local RayCastInformation = RaycastParams.new()
+									RayCastInformation.FilterDescendantsInstances = {Player.Character}
+									RayCastInformation.FilterType = Enum.RaycastFilterType.Blacklist
+									local Ray = workspace:Raycast(Player.Character.Head.Position, (v.Character.Head.Position - Player.Character.Head.Position).Unit*1000, RayCastInformation)
+									if v.Character:IsAncestorOf(Ray.Instance) then
+										Box.Color = enSA
+									else
+										Box.Color = nonSA
+									end
+								else
+									Box.Color = enSA
+								end
+								Box.Visible = true
+							else
+								Box.Visible = false
+							end
+						else
+							Box.Visible = false
+						end
+					else
+						Box.Visible = false
+					end
+				else
+					Box.Visible = false
+				end
+			end)
+		end
+		coroutine.wrap(con)()
+	end
+end
+
+local function _ESPNames(Bool)
+	if Bool == true then
+		for i, p in game.Players:GetPlayers() do
+			if p ~= Player then
+				local aName = p.Character.Head:FindFirstChild("OverHead")
+
+				if aName then aName:Destroy() end
+
+				if espS.Teamates.Check.V.Visible == true and p.Team ~= Player.Team then continue end
+				if espS.Enemies.Check.V.Visible == true and p.Team == Player.Team then continue end
+
+				local OverHead = Instance.new("BillboardGui")
+				local Role = Instance.new("TextLabel")
+
+				--Properties:
+
+				OverHead.Name = "OverHead"
+				OverHead.Parent = p.Character.Head
+				OverHead.LightInfluence = 1.000
+				OverHead.Size = UDim2.new(8, 0, 1, 0)
+				OverHead.StudsOffset = Vector3.new(0, 3, 0)
+
+				Role.Name = "Name"
+				Role.Parent = OverHead
+				Role.BackgroundColor3 = Color3.fromRGB(0, 255, 64)
+				Role.BackgroundTransparency = 1.000
+				Role.Position = UDim2.new(-0.25, 0, 0.899999976, 0)
+				Role.Size = UDim2.new(1.5, 0, 0.699999988, 0)
+				Role.Font = Enum.Font.Nunito
+				Role.Text = p.Name
+				Role.TextColor3 = p.TeamColor.Color
+				Role.TextScaled = true
+				Role.TextSize = 10.000
+				Role.TextWrapped = true
+			end
+		end
+	elseif Bool == false or espS.ESPNames.Check.V.Visible == false then
+		for i, p in game.Players:GetPlayers() do
+			if p ~= Player then
+				local aName = p.Character.Head:FindFirstChild("OverHead")
+
+				if aName then aName:Destroy() end
+			end
+		end
+	end
+end
+
+local function TracersESP(v: Player)
+	if espS.Teamates.Check.V.Visible == false or Player.Team ~= v.Team then
+		if v ~= Player and v.Character ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health > 0 then
+			local Line = Drawing.new("Line")
+			Line.Thickness = 1
+			Line.Color = Color3.fromRGB(255, 255, 255)
+			Line.Transparency = 1
+			Line.Visible = false
+
+			local function con()
+				RunService.RenderStepped:Connect(function()
+					if espS.ESP.Check.V.Visible == true then
+						Line.Visible = true
+						if espS.Teamates.Check.V.Visible == true or Player.Team ~= v.Team then
+							if v.Character ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health > 0 then
+								local Vector, onScreen = Camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
+								Line.From = Vector2.new(Camera.ViewportSize.X/2, Camera.ViewportSize.Y/1.2)
+
+								if onScreen == true then
+									Line.To = Vector2.new(Vector.X, Vector.Y)
+									local Check = Camera:GetPartsObscuringTarget({v.Character.Head}, Player.Character:GetChildren())
+									if espS.wCheck.Check.V.Visible == true then
+										local RayCastInformation = RaycastParams.new()
+										RayCastInformation.FilterDescendantsInstances = {Player.Character}
+										RayCastInformation.FilterType = Enum.RaycastFilterType.Blacklist
+										local Ray = workspace:Raycast(Player.Character.Head.Position, (v.Character.Head.Position - Player.Character.Head.Position).Unit*1000, RayCastInformation)
+										if v.Character:IsAncestorOf(Ray.Instance) then
+											Line.Color = enSA
+										else
+											Line.Color = nonSA
+										end
+									else
+										Line.Color = enSA
+									end
+									Line.Visible = true
+								else
+									Line.Visible = false
+								end
+							else
+								Line.Visible = false
+							end
+						else
+							Line.Visible = false
+						end
+					else
+						Line.Visible = false
+					end
+				end)
+			end
+			coroutine.wrap(con)()
+		end
+	end
+end
+
+local function _ESP(v)
+	TracersESP(v)
+	BoxESP(v)
+end
+
+--Aimbot--
+
+local function Aimbot()
+	local Targeting = false
+	local Down = false
+	local Target
+	local Circle = Drawing.new("Circle")
+	Circle.Radius = FOV
+	Circle.Color = fColor
+	Circle.Position = Vector2.new(Camera.ViewportSize.X/2, Camera.ViewportSize.Y/2)
+	Circle.Transparency = 1
+	Circle.Thickness = 1
+	Circle.Visible = false
+
+        --[[game:GetService("UserInputService").InputBegan:Connect(function(i)
+            if i.KeyCode == Enum.KeyCode.E then
+                Down = true
+                Target = nil
+                Targeting = false
+            end
+        end)
+
+        game:GetService("UserInputService").InputEnded:Connect(function(i)
+            if i.KeyCode == Enum.KeyCode.E then
+                Down = false
+                Target = nil
+                Targeting = false
+            end
+        end)]]
+
+	Mouse.Button2Down:Connect(function()
+		Down = true
+		Target = nil
+		Targeting = false
+	end)
+
+	Mouse.Button2Up:Connect(function()
+		Down = false
+		Target = nil
+		Targeting = false
+	end)
+
+	local RayCastInformation = RaycastParams.new()
+	RayCastInformation.FilterDescendantsInstances = {Player.Character}
+	RayCastInformation.FilterType = Enum.RaycastFilterType.Blacklist
+
+	coroutine.wrap(function()
+		RunService.RenderStepped:Connect(function(nect)
+			if aimS.Aimbot.Check.V.Visible == true then
+				local mpv2 = Vector2.new(Mouse.X, Mouse.Y/0.93)
+				if aimS.ShowFov.Check.V.Visible == true then
+					Circle.Visible = true
+					Circle.Radius = FOV
+					Circle.Color = fColor
+					Circle.Position = mpv2
+				else
+					Circle.Visible = false
+				end
+				if Down == true then
+					print("down")
+					if Targeting == false then
+						for _, p in pairs(Players:GetPlayers()) do
+							if p ~= Player and p.Character ~= nil and p.Character:FindFirstChild("HumanoidRootPart") ~= nil and p.Character:FindFirstChild("Humanoid") and p.Character.Humanoid.Health > 0 then
+								local pos, vis = Camera:WorldToViewportPoint(p.Character.Head.Position)
+								local dis = math.huge
+								pos = Vector2.new(pos.X, pos.Y)
+
+								if (pos - mpv2).Magnitude < dis then
+									if aimS.useFov.Check.V.Visible == false or (pos - mpv2).Magnitude <= FOV then
+										print("Pass 1")
+										if aimS.ScreenCheck.Check.V.Visible == false or vis then
+											print("Pass 2")
+											if aimS.TeamCheck.Check.V.Visible == false or Player.Team ~= p.Team then
+												print("Pass 3")
+												local Ray = workspace:Raycast(Player.Character.Head.Position, (p.Character.Head.Position - Player.Character.Head.Position).Unit*1000, RayCastInformation)
+
+												if p.Character:IsAncestorOf(Ray.Instance) then
+													print(p)
+													dis = pos - mpv2
+													Target = p
+												end
+											end
+										end
+									end
+								end
+							end
+						end
+					end
+					if Target ~= nil then
+						local Ray = workspace:Raycast(Player.Character.Head.Position, (Target.Character.Head.Position - Player.Character.Head.Position).Unit*1000, RayCastInformation)
+						if Target.Character ~= nil and Target.Character:FindFirstChild("HumanoidRootPart") and Target.Character:FindFirstChild("Humanoid") and Target.Character.Humanoid.Health > 0 and Target.Character:IsAncestorOf(Ray.Instance) then
+							print("Moving")
+							Camera.CFrame = CFrame.new(Camera.CFrame.Position, Target.Character.Head.CFrame.Position)
+	                        --[[local pos = Camera:worldToViewportPoint(Target.Character.Head.Position)
+	                        mousemoveabs(pos.X, pos.Y)
+	                        Targeting = true]]
+						else
+							print("Fall")
+							Targeting = false
+							Target = nil
+							Down = false
+						end
+					end
+				end
+			end
+		end)
+	end)()
+end
+
+local function OpenHome()
+	CurrentlyAnimating.Home = true
+	print(hgColor)
+	wTop.Home.ImageColor3 = hgColor
+	wTop.Home.Size = UDim2.new(0.583, 0, 0.177, 0)
+	local Blur = Instance.new("BlurEffect")
+	Blur.Parent = game:GetService("Lighting")
+	Blur.Name = "AccelerantBlur"
+	Blur.Size = 0
+	TweenService:Create(Blur, TweenInfo.new(0.1), {Size = 15}):Play()
+	TweenFromLeft(hFolder.aclrInfo, .1, UDim2.new(0.012, 0,0.021, 0))
+	task.delay(0.03, function()
+		TweenFromLeft(hFolder.GameInfo, .1, UDim2.new(0.011, 0, 0.193, 0))
+	end)
+	task.delay(0.03, function()
+		TweenFromLeft(hFolder.Executor, .1, UDim2.new(0.011, 0, 0.63, 0))
+	end)
+	task.delay(0.03, function()
+		TweenFromLeft(hFolder.ServerInfo, .1, UDim2.new(0.177, 0, 0.184, 0))
+	end)
+	task.delay(0.03, function()
+		TweenFromLeft(hFolder.Friends, .1, UDim2.new(0.176, 0, 0.357, 0))
+	end)
+	task.delay(.11, function()
+		CurrentlyAnimating.Home = false
+		HomeOpenned = true
+	end)
+end
+
+local function CloseHome()
+	CurrentlyAnimating.Home = true
+	wTop.Home.ImageColor3 = Color3.fromRGB(255, 255, 255)
+	wTop.Home.Size = UDim2.new(0.483, 0,0.142, 0)
+	local Blur = game:GetService("Lighting"):FindFirstChild("AccelerantBlur")
+	if Blur then
+		TweenService:Create(Blur, TweenInfo.new(0.1), {Size = 0}):Play()
+		task.delay(.1, function()
+			Blur:Destroy()
+		end)
+	end
+	TweenToPosition(hFolder.Friends, .1, UDim2.new(-1.176, 0, 0.357, 0))
+	task.delay(0.03, function()
+		TweenToPosition(hFolder.ServerInfo, .1, UDim2.new(-1.177, 0, 0.184, 0))
+	end)
+	task.delay(0.03, function()
+		TweenToPosition(hFolder.Executor, .1, UDim2.new(-1.011, 0, 0.63, 0))
+	end)
+	task.delay(0.03, function()
+		TweenToPosition(hFolder.GameInfo, .1, UDim2.new(-1.011, 0, 0.193, 0))
+	end)
+	task.delay(0.03, function()
+		TweenToPosition(hFolder.aclrInfo, .1, UDim2.new(-1.012, 0,0.021, 0))
+	end)
+	task.delay(.11, function()
+		CurrentlyAnimating.Home = false
+		HomeOpenned = false
+	end)
+end
+
+local function OpenCombat()
+	CurrentlyAnimating.Combat = true
+	wTop.Combat.ImageColor3 = hgColor
+	wTop.Combat.Size = UDim2.new(0.583, 0, 0.177, 0)
+	TweenFromLeft(cFolder.Aimbot, .1, UDim2.new(0.013, 0, 0.02, 0))
+	task.delay(0.03, function()
+		TweenFromLeft(cFolder.ESP, .1, UDim2.new(0.013, 0,0.378, 0))
+	end)
+	task.delay(.11, function()
+		CurrentlyAnimating.Combat = false
+		CombatOpenned = true
+	end)
+end
+
+local function CloseCombat()
+	CurrentlyAnimating.Combat = true
+	wTop.Combat.ImageColor3 = Color3.fromRGB(255, 255, 255)
+	wTop.Combat.Size = UDim2.new(0.483, 0,0.142, 0)
+	TweenToPosition(cFolder.ESP, .1, UDim2.new(-1.013, 0,0.378, 0))
+	task.delay(.03, function()
+		TweenToPosition(cFolder.Aimbot, .1, UDim2.new(-1.013, 0, 0.301, 0))
+	end)
+	task.delay(.11, function()
+		CurrentlyAnimating.Combat = false
+		CombatOpenned = false
+	end)
+end
+
+local function OpenLocal()
+	CurrentlyAnimating.Local = true
+	wTop.Local.ImageColor3 = hgColor
+	wTop.Local.Size = UDim2.new(0.583, 0, 0.177, 0)
+	TweenFromLeft(Screen.LocalMods, 0.1, UDim2.new(0.01, 0, 0.807, 0))
+	task.delay(.11, function()
+		CurrentlyAnimating.Local = false
+	end)
+end
+
+local function CloseLocal()
+	CurrentlyAnimating.Local = true
+	wTop.Local.ImageColor3 = Color3.fromRGB(255, 255, 255)
+	wTop.Local.Size = UDim2.new(0.483, 0,0.142, 0)
+	TweenToPosition(Screen.LocalMods, 0.1, UDim2.new(-1.01, 0, 0.807, 0))
+	task.delay(.11, function()
+		CurrentlyAnimating.Local = false
+	end)
+end
+
+local function OpenScripts()
+	CurrentlyAnimating.Scripts = true
+	wTop.Scripts.ImageColor3 = hgColor
+	wTop.Scripts.Size = UDim2.new(0.583, 0, 0.177, 0)
+	TweenFromBottom(Screen.Scripts, 0.1, UDim2.new(0.327, 0,0.819, 0))
+	task.delay(.11, function()
+		CurrentlyAnimating.Scripts = false
+	end)
+end
+
+local function CloseScripts()
+	CurrentlyAnimating.Scripts = true
+	wTop.Scripts.ImageColor3 = Color3.fromRGB(255, 255, 255)
+	wTop.Scripts.Size = UDim2.new(0.483, 0,0.142, 0)
+	TweenToPosition(Screen.Scripts, 0.1, UDim2.new(0.327, 0,1.819, 0))
+	task.delay(.11, function()
+		CurrentlyAnimating.Scripts = false
+	end)
+end
+
+local function OpenSettings()
+	CurrentlyAnimating.Settings = true
+	wBottom.Settings.ImageColor3 = hgColor
+	wBottom.Settings.Size = UDim2.new(0.525, 0, 0.233, 0)
+	TweenFromBottom(Settings, 0.1, UDim2.new(0.267, 0,0.173, 0))
+	task.delay(.11, function()
+		CurrentlyAnimating.Settings = false
+	end)
+end
+
+local function CloseSettings()
+	CurrentlyAnimating.Settings = true
+	wBottom.Settings.ImageColor3 = Color3.fromRGB(255, 255, 255)
+	wBottom.Settings.Size = UDim2.new(0.426, 0,0.193, 0)
+	TweenToPosition(Settings, 0.1, UDim2.new(0.267, 0,1.173, 0))
+	task.delay(.11, function()
+		CurrentlyAnimating.Settings = false
+	end)
+end
+
+local function CloseAll(Except: string)
+	if Except ~= "Local" then
+		CloseLocal()
+	end
+	if Except ~= "Scripts" then
+		CloseScripts()
+	end
+	if Except ~= "Home" then
+		CloseHome()
+	end
+	if Except ~= "Combat" then
+		CloseCombat()
+	end
+	if Except ~= "Settings" then
+		CloseSettings()
+	end
+end
+
+--||Connections||--
+
+wBottom.Settings.MouseButton1Click:Connect(function()
+	if Settings.Visible == false then
+		if CurrentlyAnimating.Settings == true then return end
+		CloseAll("Settings")
+		OpenSettings()
+	else
+		if CurrentlyAnimating.Settings == true then return end
+		CloseSettings()
+	end
+end)
+
+wTop.Home.MouseButton1Click:Connect(function()
+	if HomeOpenned == false then
+		if CurrentlyAnimating.Home == true then return end
+		CloseAll("Home")
+		OpenHome()
+	else
+		if CurrentlyAnimating.Home == true then return end
+		CloseHome()
+	end
+end)
+
+wTop.Local.MouseButton1Click:Connect(function()
+	if CurrentlyAnimating.Local == true then return end
+	if Screen.LocalMods.Visible == false then
+		CloseAll("Local")
+		OpenLocal()
+	else
+		CloseLocal()
+	end
+end)
+
+wTop.Scripts.MouseButton1Click:Connect(function()
+	if CurrentlyAnimating.Scripts == true then return end
+	if Screen.Scripts.Visible == false then
+		CloseAll("Scripts")
+		OpenScripts()
+	else
+		CloseScripts()
+	end
+end)
+
+wTop.Combat.MouseButton1Click:Connect(function()
+	if CombatOpenned == false then
+		if CurrentlyAnimating.Combat == true then return end
+		CombatOpenned = true
+		CloseAll("Combat")
+		OpenCombat()
+	else
+		if CurrentlyAnimating.Combat == true then return end
+		CombatOpenned = false
+		CloseCombat()
+	end
+end)
+
+for i, v in pairs(aimS:GetChildren()) do
+	if v:IsA("TextLabel") then
+		v.Check.MouseButton1Click:Connect(function()
+			if v.Check.V.Visible == false then
+				v.Check.V.Visible = true
+			else
+				v.Check.V.Visible = false
+			end
+		end)
+	end
+end
+
+for i, v in pairs(espS:GetChildren()) do
+	if v:IsA("TextLabel") then
+		v.Check.MouseButton1Click:Connect(function()
+			if v.Check.V.Visible == false then
+				v.Check.V.Visible = true
+			else
+				v.Check.V.Visible = false
+			end
+		end)
+	end
+end
+
+--||Others||--
+
+Aimbot()
+for _, v in pairs(Players:GetPlayers()) do
+	_ESP(v)
+	_ESP(v)
+
+	v.CharacterAdded:Connect(function()
+		repeat task.wait() until v.Character ~= nil
+		repeat task.wait() until v.Character:FindFirstChild("HumanoidRootPart") ~= nil
+		_ESP(v)
+		_ESP(v)
+	end)
+end
+
+Players.PlayerAdded:Connect(function(v)
+	repeat task.wait() until v.Character ~= nil
+	repeat task.wait() until v.Character:FindFirstChild("HumanoidRootPart") ~= nil
+	_ESP(v)
+	_ESP(v)
+
+	v.CharacterAdded:Connect(function()
+		repeat task.wait() until v.Character ~= nil
+		repeat task.wait() until v.Character:FindFirstChild("HumanoidRootPart") ~= nil
+		_ESP(v)
+		_ESP(v)
+	end)
+end)
+
+return true
