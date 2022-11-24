@@ -2150,3 +2150,5 @@ Accelerant.CurrentlyChangingColor.TextColor3 = Color3.fromRGB(255, 255, 255)
 Accelerant.CurrentlyChangingColor.TextScaled = true
 Accelerant.CurrentlyChangingColor.TextSize = 14.000
 Accelerant.CurrentlyChangingColor.TextWrapped = true
+
+return true
