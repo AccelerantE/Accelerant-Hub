@@ -4,4 +4,4 @@ local t = {
   603231249,
 }
 
-return t
+return true
