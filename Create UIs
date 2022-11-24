@@ -4,7 +4,6 @@
 -- Instances:
 
 local Accelerant = {
-	Accelerant = Instance.new("ScreenGui"),
 	WorkBar = Instance.new("Frame"),
 	UICorner = Instance.new("UICorner"),
 	Description = Instance.new("TextLabel"),
@@ -228,14 +227,9 @@ local Accelerant = {
 
 --Properties:
 
-Accelerant.Accelerant.Name = "Accelerant"
-Accelerant.Accelerant.Parent = game.CoreGui.Accelerant
-Accelerant.Accelerant.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-Accelerant.Accelerant.DisplayOrder = 999999999
-
 Accelerant.WorkBar.Name = "WorkBar"
 Accelerant.WorkBar.Visible = false
-Accelerant.WorkBar.Parent = Accelerant.Accelerant
+Accelerant.WorkBar.Parent = game:GetService("CoreGui").Accelerant
 Accelerant.WorkBar.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 Accelerant.WorkBar.Position = UDim2.new(0.95154506, 0, 0.289216548, 0)
 Accelerant.WorkBar.Size = UDim2.new(0.0363517702, 0, 0.421185881, 0)
