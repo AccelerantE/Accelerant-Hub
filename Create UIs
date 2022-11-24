@@ -229,7 +229,7 @@ local Accelerant = {
 --Properties:
 
 Accelerant.Accelerant.Name = "Accelerant"
-Accelerant.Accelerant.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Accelerant.Accelerant.Parent = game.CoreGui.Accelerant
 Accelerant.Accelerant.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Accelerant.Accelerant.DisplayOrder = 999999999
 
