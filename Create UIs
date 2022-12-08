@@ -233,7 +233,6 @@ Accelerant.WorkBar.Parent = Accelerant.Accelerant
 Accelerant.WorkBar.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 Accelerant.WorkBar.Position = UDim2.new(0.95154506, 0, 0.289216548, 0)
 Accelerant.WorkBar.Size = UDim2.new(0.0363517702, 0, 0.421185881, 0)
-Accelerant.WorkBar.Visible = false
 
 Accelerant.UICorner.CornerRadius = UDim.new(0.150000006, 0)
 Accelerant.UICorner.Parent = Accelerant.WorkBar
